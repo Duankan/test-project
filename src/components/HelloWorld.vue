@@ -1,11 +1,3 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <h3>张庭燕,屁股大,胸大,从后面插死你！</h3>
-  </div>
-</template>
-
 <script>
 import custom from 'custom'
 import config from 'config'
@@ -22,6 +14,13 @@ export default {
   }
 }
 </script>
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <h2>Essential Links</h2>
+    <h3>张庭燕,屁股大,胸大,从后面插死你！</h3>
+  </div>
+</template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
