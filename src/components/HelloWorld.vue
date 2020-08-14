@@ -7,13 +7,19 @@
 </template>
 
 <script>
+import custom from 'custom'
+import config from 'config'
 export default {
   name: 'HelloWorld',
-  // data() {
-  //   return {
-  //     msg: 'Welcome to Your Vue.js App',
-  //   };
-  // }
+  data () {
+    return {
+      msg: 'duying paipaipai'
+    }
+  },
+  created () {
+    console.log(config)
+    console.log(custom)
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 'use strict'
 exports.title = function (title) {
-  debugger;
+  debugger
   // title: function (title) {
-  console.log(title);
+  console.log(title)
   // },
-};
+}
