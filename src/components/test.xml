@@ -1,12 +1,1 @@
-<app>
-  <baselayer>
-    <layerinfo>
-      <text>国家城市</text>
-      <id>001</id>
-      <typename>ktw:city</typename>
-      <style>polygon1</style>
-      <type>hgis</type>
-      <bbox></bbox>
-    </layerinfo>
-  </baselayer>
-</app>
+<app>true</app>

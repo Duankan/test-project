@@ -97,6 +97,12 @@ module.exports = {
             {
                 test: /\.xml$/,
                 loader: require.resolve('../src/utils/xml-loader.js'),
+                query: {
+                    explicitArray: false, //默认点会转换为一个数组,设置explicitArray可以转换为数字或字符串
+                    ignoreAttrs: true,
+                    xmlRoot: 'root', //xml文件的根节点,移除掉xml根节点
+                    conclusionType: true, //推断数据类型(Boolean和Number),并转换为对应类型值
+                },
             },
             //自定义yml loader加载器
             {
