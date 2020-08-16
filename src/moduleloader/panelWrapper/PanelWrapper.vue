@@ -103,18 +103,18 @@ export default {
       if (val === panelstates.LEFT) {
         bottomEL.style.width = wrapperEL.offsetWidth - 300 + 'px'
         bottomEL.style.marginLeft = 300 + 'px'
-        headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
-        headerEl.style.marginLeft = 300 + 'px'
+        // headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
+        // headerEl.style.marginLeft = 300 + 'px'
       } else if (val === panelstates.RIGHT) {
         bottomEL.style.width = wrapperEL.offsetWidth - 300 + 'px'
         bottomEL.style.marginLeft = 0 + 'px'
-        headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
-        headerEl.style.marginLeft = 0 + 'px'
+        // headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
+        // headerEl.style.marginLeft = 0 + 'px'
       } else {
         bottomEL.style.width = wrapperEL.offsetWidth + 'px'
         bottomEL.style.marginLeft = 0 + 'px'
-        headerEl.style.width = wrapperEL.offsetWidth + 'px'
-        headerEl.style.marginLeft = 0 + 'px'
+        // headerEl.style.width = wrapperEL.offsetWidth + 'px'
+        // headerEl.style.marginLeft = 0 + 'px'
       }
     }
   },
@@ -363,25 +363,25 @@ export default {
     height: 0px;
   }
 }
-/deep/ .k-drawer {
+/deep/ .ivu-drawer {
   margin-top: 50px;
   width: 300px;
   height: calc(~"100% - 50px");
 }
-/deep/ .k-tabs {
+/deep/ .ivu-tabs {
   width: 100%;
   height: 100%;
-  /deep/ .k-tabs-bar {
+  /deep/ .ivu-tabs-bar {
     border-bottom: 1px solid #dcdee2;
     width: 100%;
     height: 32px;
     margin-bottom: 0px;
   }
-  /deep/ .k-tabs-content {
+  /deep/ .ivu-tabs-content {
     width: 100%;
     height: calc(~"100% - 32px");
     overflow: scroll;
-    /deep/ .k-tabs-tabpane {
+    /deep/ .ivu-tabs-tabpane {
       width: 100%;
       height: 100%;
     }

@@ -9,10 +9,7 @@ export default {
       value1: true
     }
   },
-  created() {
-    console.log(config)
-    console.log(custom)
-  }
+  created() { }
 }
 </script>
 <template>
@@ -20,22 +17,9 @@ export default {
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <h2>张庭燕,屁股大,胸大,从后面插死你！</h2>
-    <!-- <Drawer
-      title="Basic Drawer"
-      v-model="value1"
-      :mask="false"
-      :mask-closable="false"
-      :placement="'left'"
-      width="300"
-    >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-    </Drawer>-->
   </div>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1,
 h2 {

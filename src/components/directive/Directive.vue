@@ -15,6 +15,31 @@ export default {
       default: 'EmptyModule'
     }
   },
+  // //vue自定义指令方式一:
+  // Vue.directive('duying', {
+  //   //绑定时第一次调用
+  //   bind: function (el, binding) {
+  //     el.style['background'] = binding.value;
+  //   },
+  //   //绑定元素被插入父节点时调用
+  //   inserted: function (el, binding) {
+  //     console.log('inserted');
+  //   },
+  //   //绑定元素模块更新时调用
+  //   update: function (el, binding) {
+  //     console.log('update');
+  //   },
+  //   //绑定元素模板完成一次更新周期时调用
+  //   componentUpdate: function (el, binding) {
+  //     console.log('componentUpdate');
+  //   },
+  //   //解绑时第一次调用
+  //   unbind: function (el, binding) {
+  //     console.log('unbind');
+  //   },
+  // });
+
+  //vue自定义指令方式二:
   // directives: {
   //   'duying': {
   //     //绑定时第一次调用
@@ -53,7 +78,6 @@ export default {
     }
   },
   computed: {
-    // 计算属性的 getter
     reversedMessage: function () {
       return this.paipaipai.split('').reverse().join('')
     }
@@ -64,8 +88,6 @@ export default {
     },
     // 打开面板
     async openPanel(item) {
-      console.log(custom)
-      console.log(config)
       let moduleInst = null
       if (item !== null) {
         moduleInst = ModuleLoader.getModule(item.panelId)
@@ -89,51 +111,7 @@ export default {
       }
     }
   }
-  // render: function (createElement) {
-  //   return createElement(
-  //     this.module, {
-  //     class: {
-  //       child: true,
-  //       more: false,
-  //     },
-  //     attrs: {
-  //       id: 'foo',
-  //       name: 'child',
-  //     },
-  //     style: {
-  //       width: '100%',
-  //       height: '50px',
-  //     },
-  //     // domProps: {
-  //     //   innerHTML: 'child-innerHTML',
-  //     // },
-  //   },
-  //   );
-  // },
 }
-// //vue自定义指令方式一:
-// Vue.directive('duying', {
-//   //绑定时第一次调用
-//   bind: function (el, binding) {
-//     el.style['background'] = binding.value;
-//   },
-//   //绑定元素被插入父节点时调用
-//   inserted: function (el, binding) {
-//     console.log('inserted');
-//   },
-//   //绑定元素模块更新时调用
-//   update: function (el, binding) {
-//     console.log('update');
-//   },
-//   //绑定元素模板完成一次更新周期时调用
-//   componentUpdate: function (el, binding) {
-//     console.log('componentUpdate');
-//   },
-//   //解绑时第一次调用
-//   unbind: function (el, binding) {
-//     console.log('unbind');
-//   },
-// });
 </script>
 <template>
   <div class="directive">

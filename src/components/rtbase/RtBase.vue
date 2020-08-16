@@ -47,8 +47,7 @@ export default {
       <PanelWrapper>
         <router-view></router-view>
       </PanelWrapper>
-      <!-- <img src="../assets/logo.png" />
-      <router-view />-->
+      <!-- <img src="../assets/logo.png" /> -->
     </main>
   </div>
 </template>
