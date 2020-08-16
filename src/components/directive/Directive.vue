@@ -40,12 +40,12 @@ export default {
   //     },
   //   },
   // },
-  data () {
+  data() {
     return {
       paipaipai: '',
       color: 'white',
       show: true,
-      left: { module: 'Map', position: 'left', action: 'panel', panelId: null },
+      left: { module: 'Rtzty', position: 'left', action: 'panel', panelId: null },
       right: { module: 'EmptyModule', position: 'right', action: 'panel', panelId: null },
       bottom1: { module: 'Itable', position: 'bottom-open', action: 'panel', panelId: null },
       bottom2: { module: 'Itable2', position: 'bottom-open', action: 'panel', panelId: null },
@@ -59,11 +59,11 @@ export default {
     }
   },
   methods: {
-    toIframe () {
+    toIframe() {
       this.$router.push({ name: 'Iframe', params: { url: 'basicplatform-highgis-portal/main.html#/content/myData' } })
     },
     // 打开面板
-    async openPanel (item) {
+    async openPanel(item) {
       console.log(custom)
       console.log(config)
       let moduleInst = null

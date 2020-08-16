@@ -11,7 +11,7 @@
  *    3.id {String} 执行环境的id,返回的是一个字符串
  *
  **/
-function importAll (r) {
+function importAll(r) {
   let components = {}
   r.keys().forEach(key => {
     const name = key.match(/\/(\w+?)\.vue$/)[1]
@@ -19,6 +19,7 @@ function importAll (r) {
       components[name] = r(key).default
     }
   })
+  console.log(components);
   return components
 }
 

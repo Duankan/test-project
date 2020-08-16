@@ -16,19 +16,19 @@ const routes = [{
     name: 'Directive',
     path: '/direct',
     component: () =>
-                    import('@/components/directive/Directive')
+      import('@/components/directive/Directive')
   },
   {
     name: 'HelloWorld',
     path: '/pap',
     component: () =>
-                    import('@/components/HelloWorld')
+      import('@/components/HelloWorld')
   },
   {
     name: 'Rtzty',
     path: '/rtzty',
     component: () =>
-                    import('@/components/Rtzty')
+      import('@/components/rtzty/Rtzty')
   }
   ]
 }]
@@ -87,6 +87,6 @@ router.beforeEach((to, from, next) => {
   to.matched.length ? next() : next(to.fullPath)
 })
 // 路由后置
-router.afterEach(() => {})
+router.afterEach(() => { })
 
 export default router

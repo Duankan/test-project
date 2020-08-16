@@ -12,12 +12,12 @@ const panelstates = {
 export default {
   name: 'PanelWrapper',
   components: { ModuleWrapper },
-  data () {
+  data() {
     return {
       // 抽屉是否显示
       showDrawer: false,
       // 左右两侧模块
-      left_right_module: null,
+      left_right_module: {},
       // 下方模块
       bottomModules: [],
       // 激活的底部面板
@@ -32,27 +32,27 @@ export default {
   },
   computed: {
     // 底部面板样式
-    bottomPanelClasses () {
+    bottomPanelClasses() {
       let wrapperEL = document.getElementsByClassName('wrapper')[0]
       let centerEL = document.getElementsByClassName('center')[0]
       if (this.bottomState === panelstates.BOTTOMCOLLAPSED) {
-        if (wrapperEL !== null && centerEL !== null) {
+        if (wrapperEL !== null && centerEL !== null && wrapperEL !== undefined && centerEL !== undefined) {
           centerEL.style.height = wrapperEL.offsetHeight - 25 + 'px'
         }
         return panelstates.BOTTOMCOLLAPSED // 收拢
       } else if (this.bottomState === panelstates.BOTTOMCLOSED) {
-        if (wrapperEL !== null && centerEL !== null) {
+        if (wrapperEL !== null && centerEL !== null && wrapperEL !== undefined && centerEL !== undefined) {
           centerEL.style.height = wrapperEL.offsetHeight + 'px'
         }
         return panelstates.BOTTOMCLOSED // 关闭
       }
-      if (wrapperEL !== null && centerEL !== null) {
+      if (wrapperEL !== null && centerEL !== null && wrapperEL !== undefined && centerEL !== undefined) {
         centerEL.style.height = wrapperEL.offsetHeight - 204 + 'px'
       }
       return ''
     },
     // 中间插槽样式
-    centerCSS () {
+    centerCSS() {
       if (this.bilateralPanelState === panelstates.RIGHT) {
         return 'center-to-left'
       } else if (this.bilateralPanelState === panelstates.LEFT) {
@@ -62,7 +62,7 @@ export default {
       }
     },
     // 底部面板标题
-    bottomTitle () {
+    bottomTitle() {
       if (this.bottomActivedModule !== null) {
         for (let i = 0; i < this.bottomModules.length; i++) {
           if (this.bottomModules[i].module === this.bottomActivedModule) {
@@ -74,10 +74,10 @@ export default {
       return '未加载模块'
     },
     // 抽屉出现位置
-    drawerPosition () {
+    drawerPosition() {
       if (
-        this.left_right_module !== null &&
-        this.left_right_module.showArgs !== null
+        this.left_right_module !== null && this.left_right_module !== {} &&
+        this.left_right_module.showArgs !== null && this.left_right_module.showArgs !== undefined
       ) {
         if (this.left_right_module.showArgs.position === panelstates.LEFT) return panelstates.LEFT
         if (this.left_right_module.showArgs.position === panelstates.RIGHT) return panelstates.RIGHT
@@ -86,7 +86,7 @@ export default {
     }
   },
   watch: {
-    left_right_module (val) {
+    left_right_module(val) {
       this.clearRefs()
       this.$nextTick(p => {
         let wrapper = document.getElementsByClassName('wrapper')[0]
@@ -96,30 +96,37 @@ export default {
       })
     },
     // 监测左右面板展开收缩
-    bilateralPanelState (val) {
+    bilateralPanelState(val) {
       let bottomEL = document.getElementsByClassName('bottom-panel')[0]
       let wrapperEL = document.getElementsByClassName('wrapper')[0]
+      let headerEl = document.getElementsByTagName('header')[0];
       if (val === panelstates.LEFT) {
         bottomEL.style.width = wrapperEL.offsetWidth - 300 + 'px'
         bottomEL.style.marginLeft = 300 + 'px'
+        headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
+        headerEl.style.marginLeft = 300 + 'px'
       } else if (val === panelstates.RIGHT) {
         bottomEL.style.width = wrapperEL.offsetWidth - 300 + 'px'
         bottomEL.style.marginLeft = 0 + 'px'
+        headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
+        headerEl.style.marginLeft = 0 + 'px'
       } else {
         bottomEL.style.width = wrapperEL.offsetWidth + 'px'
         bottomEL.style.marginLeft = 0 + 'px'
+        headerEl.style.width = wrapperEL.offsetWidth + 'px'
+        headerEl.style.marginLeft = 0 + 'px'
       }
     }
   },
-  mounted () {
+  mounted() {
     PanelLoader.inst(this)
   },
-  destroyed () {
+  destroyed() {
     PanelLoader.destroy()
   },
   methods: {
     // 创建面板
-    createModule (args) {
+    createModule(args) {
       if (args !== null && args.showArgs !== null) {
         if (args.showArgs.position === panelstates.LEFT) {
           this.showDrawer = true
@@ -141,7 +148,7 @@ export default {
       this.modules[args.id] = args
     },
     // 激活模块
-    activeModule (id) {
+    activeModule(id) {
       if (!id || !this.modules[id]) return
       let panel = this.modules[id]
       let pos = panel.showArgs.position
@@ -150,7 +157,7 @@ export default {
       }
     },
     // 获取模块实例
-    getModule (id) {
+    getModule(id) {
       return new Promise(resolve => {
         this.$nextTick(p => {
           let moduleInst
@@ -166,26 +173,26 @@ export default {
       })
     },
     // 获取模块窗口参数
-    getModuleInfo (id) {
+    getModuleInfo(id) {
       this.clearRefs()
       return this.modules[id]
     },
     // 关闭抽屉
-    closeDrawer (panel) {
+    closeDrawer(panel) {
       this.bilateralPanelState = ''
       delete this.modules[panel.id]
       delete this.$refs[panel.id]
       delete this.left_right_module[panel.id]
     },
     // 折叠下方面板
-    toggleBottomPanel () {
+    toggleBottomPanel() {
       this.bottomState = this.bottomState ===
         panelstates.BOTTOMOPEN
         ? panelstates.BOTTOMCOLLAPSED
         : panelstates.BOTTOMOPEN
     },
     // 关闭下方面板
-    closeBottomPanel () {
+    closeBottomPanel() {
       this.clearRefs()
       this.bottomState = panelstates.BOTTOMCLOSED
       for (let i = 0; i < this.bottomModules.length; i++) {
@@ -196,7 +203,7 @@ export default {
       this.bottomModules = []
     },
     // 移除tab
-    removeTab (id) {
+    removeTab(id) {
       this.clearRefs()
       let index = this.bottomModules.findIndex(item => {
         return item.module === id
@@ -206,7 +213,7 @@ export default {
       this.bottomModules.splice(index, 1)
     },
     // 清理因移除组件后，refs指向null
-    clearRefs () {
+    clearRefs() {
       let refs = this.$refs
       let that = this
       Object.keys(refs).map(key => {
@@ -218,7 +225,7 @@ export default {
       })
     },
     // 关闭全部面板
-    closeAllModules () {
+    closeAllModules() {
       this.showDrawer = false
       this.left_right_module = {}
       // this.
@@ -248,17 +255,11 @@ export default {
         />
       </Drawer>
     </div>
-    <div
-      :class="centerCSS"
-      class="center"
-    >
+    <div :class="centerCSS" class="center">
       <slot></slot>
     </div>
     <div class="right-panel"></div>
-    <div
-      :class="bottomPanelClasses"
-      class="bottom-panel"
-    >
+    <div :class="bottomPanelClasses" class="bottom-panel">
       <div class="bottom-panel-header">
         <div class="bottom-panel-header-title">{{ bottomTitle }}</div>
         <div class="bottom-panel-header-tool">

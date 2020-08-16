@@ -5,7 +5,7 @@ const USER_LOGOUT = 'USER_LOGOUT'
 export default {
   name: 'RtBase',
   components: { PanelWrapper },
-  data () {
+  data() {
     return {
       // LOGO地址
       logoUrl: config.system.logoUrl,
@@ -13,11 +13,11 @@ export default {
       title: config.system.title
     }
   },
-  created () {
+  created() {
   },
   methods: {
     // 退出登录
-    click () {
+    click() {
       this.$Modal.confirm({
         title: '退出',
         content: '<p>确定退出系统吗?</P>',
@@ -35,30 +35,20 @@ export default {
   <div class="RtBase">
     <header>
       <div class="left">
-        <img
-          :src="logoUrl"
-          alt="logo"
-        >
-        <span>
-          {{ title }}
-        </span>
+        <img :src="logoUrl" alt="logo" />
+        <span>{{ title }}</span>
       </div>
       <div class="right">
         <!-- <UserInfo/> -->
-        <Icon
-          type="md-log-out"
-          size="24"
-          title="退出"
-          @click.native="click"
-        ></Icon>
+        <Icon type="md-log-out" size="24" title="退出" @click.native="click"></Icon>
       </div>
     </header>
     <main>
-      <!-- <PanelWrapper> -->
-      <router-view></router-view>
-      <!-- </PanelWrapper> -->
+      <PanelWrapper>
+        <router-view></router-view>
+      </PanelWrapper>
       <!-- <img src="../assets/logo.png" />
-      <router-view /> -->
+      <router-view />-->
     </main>
   </div>
 </template>

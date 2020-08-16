@@ -3,12 +3,13 @@ import custom from 'custom'
 import config from 'config'
 export default {
   name: 'Rtzty',
-  data () {
+  data() {
     return {
-      msg: 'Rtzty'
+      msg: 'Rtzty',
+      value1: true
     }
   },
-  created () {
+  created() {
     console.log(config)
     console.log(custom)
   }
@@ -19,7 +20,18 @@ export default {
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <h2>张庭燕,屁股大,胸大,从后面插死你！</h2>
-    <Button type="primary">!!!</Button>
+    <!-- <Drawer
+      title="Basic Drawer"
+      v-model="value1"
+      :mask="false"
+      :mask-closable="false"
+      :placement="'left'"
+      width="300"
+    >
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+    </Drawer>-->
   </div>
 </template>
 
