@@ -67,7 +67,6 @@ export default {
         for (let i = 0; i < this.bottomModules.length; i++) {
           if (this.bottomModules[i].module === this.bottomActivedModule) {
             return this.bottomModules[i].title
-            // break
           }
         }
       }
@@ -90,7 +89,7 @@ export default {
       this.clearRefs()
       this.$nextTick(p => {
         let wrapper = document.getElementsByClassName('wrapper')[0]
-        let leftPanel = wrapper.getElementsByClassName('left-panel')[0]
+        let leftPanel = wrapper.getElementsByClassName('left-right-panel')[0]
         let drawer = document.getElementsByClassName('v-transfer-dom')[0]
         leftPanel.appendChild(drawer)
       })
@@ -102,19 +101,13 @@ export default {
       let headerEl = document.getElementsByTagName('header')[0];
       if (val === panelstates.LEFT) {
         bottomEL.style.width = wrapperEL.offsetWidth - 300 + 'px'
-        bottomEL.style.marginLeft = 300 + 'px'
-        // headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
-        // headerEl.style.marginLeft = 300 + 'px'
+        bottomEL.style.marginLeft = 301 + 'px'
       } else if (val === panelstates.RIGHT) {
         bottomEL.style.width = wrapperEL.offsetWidth - 300 + 'px'
         bottomEL.style.marginLeft = 0 + 'px'
-        // headerEl.style.width = wrapperEL.offsetWidth - 300 + 'px'
-        // headerEl.style.marginLeft = 0 + 'px'
       } else {
         bottomEL.style.width = wrapperEL.offsetWidth + 'px'
         bottomEL.style.marginLeft = 0 + 'px'
-        // headerEl.style.width = wrapperEL.offsetWidth + 'px'
-        // headerEl.style.marginLeft = 0 + 'px'
       }
     }
   },
@@ -228,7 +221,6 @@ export default {
     closeAllModules() {
       this.showDrawer = false
       this.left_right_module = {}
-      // this.
     }
   }
 }
@@ -236,7 +228,7 @@ export default {
 
 <template>
   <div class="wrapper">
-    <div class="left-panel">
+    <div class="left-right-panel">
       <Drawer
         v-model="showDrawer"
         :mask="false"
@@ -258,7 +250,7 @@ export default {
     <div :class="centerCSS" class="center">
       <slot></slot>
     </div>
-    <div class="right-panel"></div>
+    <!-- <div class="right-panel"></div> -->
     <div :class="bottomPanelClasses" class="bottom-panel">
       <div class="bottom-panel-header">
         <div class="bottom-panel-header-title">{{ bottomTitle }}</div>
@@ -330,6 +322,7 @@ export default {
     margin-left: 300px;
   }
   .bottom-panel {
+    box-shadow: 0px 0px 4px #6e8fb3;
     width: calc(~"100% - 2px");
     height: 200px;
     // border: 1px solid gold;
@@ -366,7 +359,8 @@ export default {
 /deep/ .ivu-drawer {
   margin-top: 50px;
   width: 300px;
-  height: calc(~"100% - 50px");
+  height: calc(~"100% - 55px");
+  box-shadow: 0px 0px 4px #6e8fb3;
 }
 /deep/ .ivu-tabs {
   width: 100%;

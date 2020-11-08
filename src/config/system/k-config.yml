@@ -9,7 +9,7 @@ initCfg:
 
 # 项目信息配置
 system:
-  title: vue-cli深度学习 # 应用程序标题
+  title: vue-cli # 应用程序标题
   introduction: TopHighGIS高性能云GIS平台是湖北金拓维信息技术有限公司开发的，具有完全自主知识产权的GIS平台产品. # 应用程序描述信息
   copyright: Copyright &copy; 2019 湖北金拓维信息技术有限公司 # 版权信息
   logoUrl: static/images/brand.jpg # LOGO 图片
