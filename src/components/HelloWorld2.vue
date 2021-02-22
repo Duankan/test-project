@@ -2,13 +2,13 @@
 import custom from 'custom'
 import config from 'config'
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: 'HelloWorld2',
+  data() {
     return {
       msg: 'duying paipaipai'
     }
   },
-  created () {
+  created() {
     console.log(config)
     console.log(custom)
   }

@@ -70,8 +70,8 @@ export default {
       paipaipai: '',
       color: 'white',
       show: true,
-      left: { module: 'Rtzty', position: 'left', action: 'panel', panelId: null },
-      right: { module: 'EmptyModule', position: 'right', action: 'panel', panelId: null },
+      left: { module: 'BindCallApply', position: 'left', action: 'panel', panelId: null },
+      right: { module: 'MixinA', position: 'right', action: 'panel', panelId: null },
       bottom1: { module: 'Itable', position: 'bottom-open', action: 'panel', panelId: null },
       bottom2: { module: 'Itable2', position: 'bottom-open', action: 'panel', panelId: null },
       link: { module: 'https://www.iviewui.com/components/tabs', position: '', action: 'link', openType: 'href', panelId: null }
@@ -115,7 +115,7 @@ export default {
 </script>
 <template>
   <div class="directive">
-    <Button @click.native="openPanel(left)">分析(左)</Button>
+    <Button @click.native="openPanel(left)">BindCallApply</Button>
     <Button @click.native="openPanel(right)">分析(右)</Button>
     <Button @click.native="openPanel(bottom1)">分析(下)</Button>
     <Button @click.native="openPanel(bottom2)">分析(下2)</Button>

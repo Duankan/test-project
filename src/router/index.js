@@ -14,12 +14,12 @@ const routes = [{
     component: () =>
       import('@/components/directive/Directive')
   },
-  {
-    name: 'HelloWorld',
-    path: '/pap',
-    component: () =>
-      import('@/components/HelloWorld')
-  },
+  // {
+  //   name: 'HelloWorld',
+  //   path: '/pap',
+  //   component: () =>
+  //     import('@/components/HelloWorld')
+  // },
   {
     name: 'Rtzty',
     path: '/rtzty',

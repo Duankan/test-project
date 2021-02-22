@@ -1,9 +1,10 @@
 {
   "name": "test-project",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "练习将组件发布到npm",
   "author": "Duankan <729633588@qq.com>",
-  "private": true,
+  "private": false,
+  "main": "./dist/npm-rtzty.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",

@@ -11,12 +11,14 @@
  *    3.id {String} 执行环境的id,返回的是一个字符串
  *
  **/
+import Vue from 'vue';
 function importAll(r) {
   let components = {}
   r.keys().forEach(key => {
     const name = key.match(/\/(\w+?)\.vue$/)[1]
     if (key.indexOf(name.toLowerCase()) > -1) {
-      components[name] = r(key).default
+      components[name] = r(key).default || r(key);
+      Vue.component(name, components[name]);
     }
   })
   console.log(components);

@@ -3,7 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
+const NODE_ENV=process.env.NODE_ENV
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
@@ -22,16 +22,24 @@ const createLintingRule = () => ({
 module.exports = {
     context: path.resolve(__dirname, '../'),
     //入口
+    // entry:NODE_ENV=='development'?'./src/main.js':'./index.js',
     entry: {
         app: './src/main.js'
     },
     //出口
+    // output:{
+    //   path: config.build.assetsRoot,
+    //   publicPath:process.env.NODE_ENV === 'production' ?config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    //   filename:'npm-rtzty.js',
+    //   library:'npm-rtzty',//指定require的模块名
+    //   libraryTartget:'umd',//指定输出格式
+    //   umdNameDefine:true,//会对UMD的构建过程中的AMD模块进行命名
+    // },
     output: {
         path: config.build.assetsRoot, //index.js中的build配置中的assetsRoot，也就是dist目录
         filename: '[name].js',
         //上线地址，也就是真正的文件引用路径，如果是production生产环境，其实这里都是 '/'
-        publicPath: process.env.NODE_ENV === 'production' ?
-            config.build.assetsPublicPath : config.dev.assetsPublicPath
+        publicPath: process.env.NODE_ENV === 'production' ?config.build.assetsPublicPath : config.dev.assetsPublicPath
     },
     /**
      * resolve是webpack的内置选项，顾名思义，决定要做的事情，

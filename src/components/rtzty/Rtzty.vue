@@ -1,8 +1,12 @@
 <script>
 import custom from 'custom'
 import config from 'config'
+// import HelloWorld from 'npm-my-component/src/components/HelloWorld';
 export default {
   name: 'Rtzty',
+  components: {
+    // HelloWorld,
+  },
   data() {
     return {
       msg: 'Rtzty',
@@ -17,7 +21,8 @@ export default {
     <img src="../../assets/logo.png" />
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <h2>张庭燕,屁股大,胸大,从后面插死你！</h2>
+    <!-- <h2>张庭燕,屁股大,胸大,从后面插死你！</h2> -->
+    <!-- <HelloWorld></HelloWorld> -->
   </div>
 </template>
 
