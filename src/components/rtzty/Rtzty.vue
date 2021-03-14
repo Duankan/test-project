@@ -1,19 +1,19 @@
 <script>
-import custom from 'custom'
-import config from 'config'
+// import custom from 'custom'
+// import config from 'config'
 // import HelloWorld from 'npm-my-component/src/components/HelloWorld';
 export default {
   name: 'Rtzty',
   components: {
     // HelloWorld,
   },
-  data() {
+  data () {
     return {
       msg: 'Rtzty',
       value1: true
     }
   },
-  created() { }
+  created () { }
 }
 </script>
 <template>

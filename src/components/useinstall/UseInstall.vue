@@ -8,17 +8,17 @@
 export default {
   name: 'UseInstall',
   component: {},
-  data() {
+  data () {
     return {
-      componetname: 'UseInstall',
-    };
+      componetname: 'UseInstall'
+    }
   },
-  created() {
+  created () {
 
   },
   methods: {
 
-  },
+  }
 }
 </script>
 <template>
