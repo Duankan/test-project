@@ -21,7 +21,6 @@ export default {
     <img src="../../assets/logo.png" />
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <!-- <h2>张庭燕,屁股大,胸大,从后面插死你！</h2> -->
     <!-- <HelloWorld></HelloWorld> -->
   </div>
 </template>
