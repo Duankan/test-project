@@ -6,9 +6,11 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 
 import UseInstall from '../src/components/useinstall/index';
+import kplugins from 'kplugins';
 Vue.use(iView)
 //使用自定义插件
 Vue.use(UseInstall)
+Vue.use(kplugins)
 
 Vue.config.productionTip = false
 // 创建x2js对象，挂到vue原型上

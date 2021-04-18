@@ -108,6 +108,8 @@ export default {
       style="color:red;"
     ></span>
     <UseInstall></UseInstall>
+    <test-toast></test-toast>
+    <test-panel></test-panel>
   </div>
 </template>
 
