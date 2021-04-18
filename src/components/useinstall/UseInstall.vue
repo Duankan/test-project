@@ -8,22 +8,22 @@
 export default {
   name: 'UseInstall',
   component: {},
-  data() {
+  data () {
     return {
-      componetname: 'UseInstall',
-    };
+      componetname: 'UseInstall'
+    }
   },
-  created() {
+  created () {
 
   },
   methods: {
 
-  },
+  }
 }
 </script>
 <template>
   <div class="use-install">
-    <span>月缺不改光,剑折不改刚,有志向的人不改初衷!</span>
+    <span>月缺不改光,剑折不改刚,有志向的人不改初衷!!!</span>
   </div>
 </template>
 
