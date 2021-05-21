@@ -21,56 +21,83 @@ export default {
     // this.setPromiseHttp();
     // this.defineProperty();
     this.mvvm()
-    let { toString: s } = 123
-    console.log(s)
-    console.log`hello`
-    console.log(['hello'])
-    var proxy = new Proxy({}, {
-      get: function (target, propKey) {
-        return 35
-      }
-    })
-    console.log(proxy.name)
-    console.log(proxy.title)
-
+    // let { toString: s } = 123
+    // console.log(s)
+    // console.log`hello`
+    // console.log(['hello'])
+    // var proxy = new Proxy({}, {
+    //   get: function (target, propKey) {
+    //     return 35
+    //   }
+    // })
+    // console.log(proxy.name)
+    // console.log(proxy.title)
     // console.log`"\u0061"`
+    this.setAjax('http://localhost:7080/onemap//wfsToDataBase/list/420114_3').then(function (json) {
+      console.log('Contents: ' + json)
+    }, function (error) {
+      console.error('出错了', error)
+    })
   },
   methods: {
-    doPromise: function () {
+    //  实现AJAX例子
+    setAjax: function (url) {
       let promise = new Promise(function (resolve, reject) {
-        setTimeout(function () {
-          resolve({ message: '承诺做到了A!', code: 200 })
-        }, 1000)
-      })
-      promise.then(function (callback) {
-        console.log('成功后回调返回信息:' + JSON.stringify(callback))
-      })
-      promise.catch(function (callback) {
-        console.log('失败后回调返回信息:' + JSON.stringify(callback))
-      })
-      console.log('异步执行B!')
-      console.log(promise)
-    },
-    // 模拟发送个异步HTTP请求
-    setPromiseHttp: function () {
-      let url = 'http://localhost:8080/getFeatures'
-      let promise = new Promise(function (resolve, reject) {
-        setTimeout(setrequest, 2500, url)
-        function setrequest (url) {
-          resolve({
-            code: 200,
-            message: 'success',
-            data: [
-              { TMM: 'TMM', AGE: 27 }
-            ]
-          })
+        // 发送后handler处理
+        let handler = function () {
+          if (this.readyState !== 4) {
+            return
+          }
+          if (this.status === 200) {
+            resolve(this.response)
+          } else {
+            reject(new Error(this.statusText))
+          }
         }
+        const client = new XMLHttpRequest()
+        client.open('GET', url)
+        client.onreadystatechange = handler
+        client.responseType = 'json'
+        client.setRequestHeader('Accept', 'application/json')
+        client.send()
       })
-      promise.then(function (callback) {
-        console.log('成功后回调返回信息:' + JSON.stringify(callback))
-      })
-      console.log('继续执行B操作!')
+      return promise
     },
+    // doPromise: function () {
+    //   let promise = new Promise(function (resolve, reject) {
+    //     setTimeout(function () {
+    //       resolve({ message: '承诺做到了A!', code: 200 })
+    //     }, 1000)
+    //   })
+    //   promise.then(function (callback) {
+    //     console.log('成功后回调返回信息:' + JSON.stringify(callback))
+    //   })
+    //   promise.catch(function (callback) {
+    //     console.log('失败后回调返回信息:' + JSON.stringify(callback))
+    //   })
+    //   console.log('异步执行B!')
+    //   console.log(promise)
+    // },
+    // 模拟发送个异步HTTP请求
+    // setPromiseHttp: function () {
+    //   let url = 'http://localhost:8080/getFeatures'
+    //   let promise = new Promise(function (resolve, reject) {
+    //     setTimeout(setrequest, 2500, url)
+    //     function setrequest (url) {
+    //       resolve({
+    //         code: 200,
+    //         message: 'success',
+    //         data: [
+    //           { TMM: 'TMM', AGE: 27 }
+    //         ]
+    //       })
+    //     }
+    //   })
+    //   promise.then(function (callback) {
+    //     console.log('成功后回调返回信息:' + JSON.stringify(callback))
+    //   })
+    //   console.log('继续执行B操作!')
+    // },
     // 数据劫持  Object.defineProperty()
     defineProperty: function () {
       let Book = {}
