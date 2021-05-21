@@ -21,6 +21,19 @@ export default {
     // this.setPromiseHttp();
     // this.defineProperty();
     this.mvvm()
+    let { toString: s } = 123
+    console.log(s)
+    console.log`hello`
+    console.log(['hello'])
+    var proxy = new Proxy({}, {
+      get: function (target, propKey) {
+        return 35
+      }
+    })
+    console.log(proxy.name)
+    console.log(proxy.title)
+
+    // console.log`"\u0061"`
   },
   methods: {
     doPromise: function () {
