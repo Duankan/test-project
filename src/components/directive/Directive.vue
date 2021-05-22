@@ -39,7 +39,7 @@ export default {
   //   },
   // });
 
-  //vue自定义指令方式二:
+  // vue自定义指令方式二:
   // directives: {
   //   'duying': {
   //     //绑定时第一次调用
@@ -65,7 +65,7 @@ export default {
   //     },
   //   },
   // },
-  data() {
+  data () {
     return {
       paipaipai: '',
       color: 'white',
@@ -83,11 +83,11 @@ export default {
     }
   },
   methods: {
-    toIframe() {
+    toIframe () {
       this.$router.push({ name: 'Iframe', params: { url: 'basicplatform-highgis-portal/main.html#/content/myData' } })
     },
     // 打开面板
-    async openPanel(item) {
+    async openPanel (item) {
       let moduleInst = null
       if (item !== null) {
         moduleInst = ModuleLoader.getModule(item.panelId)
