@@ -8,19 +8,21 @@
  */
 export default {
   name: 'Promise',
-  data () {
+  data() {
     return {
       vuebind: {
         a: 1
       }
     }
   },
-  created () {
+  created() {
     // console.log(this.vuebind);
     // this.doPromise();
     // this.setPromiseHttp();
     // this.defineProperty();
     this.mvvm()
+    var a = 0x22;
+    console.log(a);
   },
   methods: {
     doPromise: function () {
@@ -43,7 +45,7 @@ export default {
       let url = 'http://localhost:8080/getFeatures'
       let promise = new Promise(function (resolve, reject) {
         setTimeout(setrequest, 2500, url)
-        function setrequest (url) {
+        function setrequest(url) {
           resolve({
             code: 200,
             message: 'success',
