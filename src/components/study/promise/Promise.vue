@@ -141,7 +141,11 @@ export default {
     //   })
     //   console.log('继续执行B操作!')
     // },
-    // 数据劫持  Object.defineProperty()
+
+    /**
+     *  数据劫持  Object.defineProperty() 旧
+     *  新:proxy代理拦截
+     */
     defineProperty: function () {
       let Book = {}
       var name = ''
