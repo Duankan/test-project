@@ -5,17 +5,21 @@
     格式:let X=new Promise(function (resolve, reject) {});
       resolve:成功
       reject:失败
+  特点: 1.可以使用线性期约链then干掉嵌套回调
+        2.可以让错误正确传递并捕捉
+        3.实现基于异步编程
  */
+import { sendHttpRequest } from '@/utils/helps';
 export default {
   name: 'Promise',
-  data () {
+  data() {
     return {
       vuebind: {
         a: 1
       }
     }
   },
-  created () {
+  created() {
     // console.log(this.vuebind);
     // this.doPromise();
     // this.setPromiseHttp();
@@ -33,10 +37,27 @@ export default {
     // console.log(proxy.name)
     // console.log(proxy.title)
     // console.log`"\u0061"`
-    this.setAjax('http://localhost:7080/onemap//wfsToDataBase/list/420114_3').then(function (json) {
-      console.log('Contents: ' + json)
-    }, function (error) {
-      console.error('出错了', error)
+    // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(
+    //   function (json) {
+    //     console.log('Contents: ' + json)
+    //   },
+    //   function (error) {
+    //     console.error('出错了', error)
+    //   }
+    // );
+    // this.setFetch('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(response => {
+    //   return response.json();
+    // }).then(profile => {
+    //   console.log(profile);
+    // })
+
+    //并行期约测试
+    let result = Promise.all([
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱后入大屁股', 'get'),
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏啪啪啪后入大屁股', 'get'),]
+    );
+    result.then((data) => {
+      console.log(data) //[ 1, 2 ]
     })
   },
   methods: {
@@ -59,10 +80,32 @@ export default {
         client.onreadystatechange = handler
         client.responseType = 'json'
         client.setRequestHeader('Accept', 'application/json')
+        client.setRequestHeader('Access-Control-Allow-Origin', '*')
         client.send()
       })
       return promise
     },
+
+    /**
+     * 使用最新基于Promise的http请求函数fetch
+    **/
+    setFetch: function (url) {
+      return fetch(url);
+    },
+
+    //基于axois的期约
+    setAxois: function (url, type, headers, params, extend) {
+      let promise = new Promise(function (resolve, reject) {
+        let axiosp = sendHttpRequest(url, type, headers, params, extend);
+        if (axiosp) {
+          resolve(axiosp.then(response => { return response }))
+        } else {
+          reject('请求失败!')
+        }
+      });
+      return promise;
+    },
+
     // doPromise: function () {
     //   let promise = new Promise(function (resolve, reject) {
     //     setTimeout(function () {
