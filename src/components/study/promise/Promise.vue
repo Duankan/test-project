@@ -37,7 +37,7 @@ export default {
     // console.log(proxy.name)
     // console.log(proxy.title)
     // console.log`"\u0061"`
-    // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(
+    // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/2.pdf').then(
     //   function (json) {
     //     console.log('Contents: ' + json)
     //   },
@@ -45,7 +45,7 @@ export default {
     //     console.error('出错了', error)
     //   }
     // );
-    // this.setFetch('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(response => {
+    // this.setFetch('http://localhost:8089/service/pdf/getPdfTemplate/1.pdf').then(response => {
     //   return response.json();
     // }).then(profile => {
     //   console.log(profile);
@@ -53,8 +53,8 @@ export default {
 
     // 并行期约测试
     let result = Promise.all([
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA', 'get'),
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA2', 'get')]
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA.pdf', 'get'),
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA2.pdf', 'get')]
     )
     result.then((data) => {
       console.log(data) // [ 1, 2 ]
