@@ -9,17 +9,17 @@
         2.可以让错误正确传递并捕捉
         3.实现基于异步编程
  */
-import { sendHttpRequest } from '@/utils/helps';
+import { sendHttpRequest } from '@/utils/helps'
 export default {
   name: 'Promise',
-  data() {
+  data () {
     return {
       vuebind: {
         a: 1
       }
     }
   },
-  created() {
+  created () {
     // console.log(this.vuebind);
     // this.doPromise();
     // this.setPromiseHttp();
@@ -51,13 +51,13 @@ export default {
     //   console.log(profile);
     // })
 
-    //并行期约测试
+    // 并行期约测试
     let result = Promise.all([
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱后入大屁股', 'get'),
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏啪啪啪后入大屁股', 'get'),]
-    );
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA', 'get'),
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA2', 'get')]
+    )
     result.then((data) => {
-      console.log(data) //[ 1, 2 ]
+      console.log(data) // [ 1, 2 ]
     })
   },
   methods: {
@@ -90,20 +90,20 @@ export default {
      * 使用最新基于Promise的http请求函数fetch
     **/
     setFetch: function (url) {
-      return fetch(url);
+      return fetch(url)
     },
 
-    //基于axois的期约
+    // 基于axois的期约
     setAxois: function (url, type, headers, params, extend) {
       let promise = new Promise(function (resolve, reject) {
-        let axiosp = sendHttpRequest(url, type, headers, params, extend);
+        let axiosp = sendHttpRequest(url, type, headers, params, extend)
         if (axiosp) {
           resolve(axiosp.then(response => { return response }))
         } else {
-          reject('请求失败!')
+          // reject('请求失败!')
         }
-      });
-      return promise;
+      })
+      return promise
     },
 
     // doPromise: function () {
