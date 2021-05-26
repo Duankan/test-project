@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import view from '@/components'
 import { PanelLoader, ModuleLoader } from '@/moduleloader'
+import moduleloader from '../study/classes6/MyClassEs6'
 
 import custom from 'custom'
 import config from 'config'
@@ -70,7 +71,7 @@ export default {
       paipaipai: '',
       color: 'white',
       show: true,
-      left: { module: 'Promise', position: 'left', action: 'panel', panelId: null },
+      left: { module: 'Iterator', position: 'left', action: 'panel', panelId: null },
       right: { module: 'MixinA', position: 'right', action: 'panel', panelId: null },
       bottom1: { module: 'Itable', position: 'bottom-open', action: 'panel', panelId: null },
       bottom2: { module: 'Itable2', position: 'bottom-open', action: 'panel', panelId: null },
@@ -109,6 +110,24 @@ export default {
           ModuleLoader.activeModule(item.panelId)
         }
       }
+    },
+    // class语法糖
+    todoclass () {
+      let arr = ['a', 'b', 'c']
+      let iter = arr[Symbol.iterator]()
+      let next = iter.next()
+      while (!next.done) {
+        this.$Message.warning(next.value)
+        next = iter.next()
+      }
+      moduleloader.warning()
+      // let loaders = new moduleloader()
+      // loaders.createModule(
+      //   {
+      //     openType: 'href',
+      //     url: 'https://www.iviewui.com/components/tabs'
+      //   }
+      // )
     }
   }
 }
@@ -120,6 +139,7 @@ export default {
     <Button @click.native="openPanel(bottom1)">分析(下)</Button>
     <Button @click.native="openPanel(bottom2)">分析(下2)</Button>
     <Button @click.native="openPanel(link)">分析(link)</Button>
+    <Button @click.native="todoclass">class语法糖</Button>
   </div>
 </template>
 <style scoped lang="less">

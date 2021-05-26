@@ -1,1 +1,17 @@
-<app>true</app>
+<MapLayer>
+  <ID>ktw:BWTC</ID>
+  <Text>不稳定新增</Text>
+  <Visible>true</Visible>
+  <Url>OneMapOWS</Url>
+  <!--<staticUrl>html/onemap/bottomStatics/polygon.html</staticUrl>-->
+  <EPSG>EPSG:4490</EPSG>
+  <TypeName>ktw:BWTC</TypeName>
+  <GroupFields>COUNTYMC,CITYMC,DLMC</GroupFields>
+  <OperateField>TBDLMJ</OperateField>
+  <IconCls>icon-tree-polygon</IconCls>
+  <Styles>BWTC</Styles>
+  <Checked>false</Checked>
+  <GeometryName>the_geom</GeometryName>
+  <Type>WMS</Type>
+  <ServerType>hgis</ServerType>
+</MapLayer>
