@@ -71,7 +71,7 @@ export default {
       paipaipai: '',
       color: 'white',
       show: true,
-      left: { module: 'Iterator', position: 'left', action: 'panel', panelId: null },
+      left: { module: 'Generator', position: 'left', action: 'panel', panelId: null },
       right: { module: 'MixinA', position: 'right', action: 'panel', panelId: null },
       bottom1: { module: 'Itable', position: 'bottom-open', action: 'panel', panelId: null },
       bottom2: { module: 'Itable2', position: 'bottom-open', action: 'panel', panelId: null },

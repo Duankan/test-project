@@ -88,22 +88,15 @@ export default {
         k1: '1',
         k2: [1, 2, 3],
         *[Symbol.iterator] () {
-          const self = this
-          let keys = Object.keys(self)
-          yield self[keys[0]]
-          yield self[keys[1]]
-          // let index = 0
-          // if (index < keys.length) yield self[keys[index++]]
+          let propKeys = Object.keys(this)
+          for (let propKey of propKeys) {
+            yield [propKey, this[propKey]]
+          }
         }
       }
-      for (var v of myIterable) {
-        console.log(v)
+      for (var [key, value] of myIterable) {
+        console.log(`${key}: ${value}`)
       }
-      // myIterable[Symbol.iterator] = function* () {
-      //   yield 1
-      //   yield 2
-      //   yield 3
-      // }
     },
     testmakeiterator () {
       let iter = this.makeIterator(['a', 'b'])
