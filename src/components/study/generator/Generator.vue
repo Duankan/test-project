@@ -18,7 +18,7 @@ export default {
       }
       let asyncs = sethttp()
       asyncs.next()
-      asyncs.next(true)// 将上一步完成的值传递给第二个next
+      asyncs.next(true)
       console.log('--------')
     },
 
@@ -31,7 +31,9 @@ export default {
         return 'success'
       }
       let masync = moniasync()
-      masync.next()
+      masync.next().value.then(response => {
+        console.log(response)
+      })
       masync.next()
       masync.next()
       console.log('在异步之前输入？')
@@ -39,28 +41,30 @@ export default {
 
     // 3.传统的基于回调方法的异步编程
     asyncBaseonAsync () {
-      function getUserinfo (user, fn) {
-        console.log(new Date())
+      function getUserinfo (userid, fn) {
         setTimeout(function () {
-          fn(user == null ? {} : { username: '谭明敏', password: '1994' })
+          fn(userid == null ? {} : { username: '谭明敏', password: '1994', userid: userid })
         }, 1000)
       }
-      getUserinfo('谭明敏', function (data) {
-        console.log(new Date())
+      getUserinfo('002', function (data) {
         console.log(data)
       })
     },
     // 登录
     login () {
-      setTimeout(function () {
-        console.log('登录成功!')
-      }, 1000)
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          resolve('login success!')
+        }, 1000)
+      })
     },
     // 获取数据目录
     getcatalog () {
-      setTimeout(function () {
-        console.log('数据目录获取成功!')
-      }, 1000)
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          resolve('get catalog success!')
+        }, 1000)
+      })
     },
     getpdftemplate (url, type, headers, params, extend) {
       let axiosp = sendHttpRequest(url, type, headers, params, extend)
@@ -70,7 +74,6 @@ export default {
         return response
       })
     }
-
   }
 }
 </script>
