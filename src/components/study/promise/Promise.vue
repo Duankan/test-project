@@ -20,15 +20,7 @@ export default {
     }
   },
   created() {
-    // console.log(this.vuebind);
-    // this.doPromise();
-    // this.setPromiseHttp();
-    // this.defineProperty();
     this.mvvm()
-    // let { toString: s } = 123
-    // console.log(s)
-    // console.log`hello`
-    // console.log(['hello'])
     // var proxy = new Proxy({}, {
     //   get: function (target, propKey) {
     //     return 35
@@ -36,7 +28,6 @@ export default {
     // })
     // console.log(proxy.name)
     // console.log(proxy.title)
-    // console.log`"\u0061"`
     // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(
     //   function (json) {
     //     console.log('Contents: ' + json)
@@ -45,11 +36,6 @@ export default {
     //     console.error('出错了', error)
     //   }
     // );
-    // this.setFetch('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(response => {
-    //   return response.json();
-    // }).then(profile => {
-    //   console.log(profile);
-    // })
 
     //并行期约测试
     let result = Promise.all([
@@ -120,26 +106,6 @@ export default {
     //   })
     //   console.log('异步执行B!')
     //   console.log(promise)
-    // },
-    // 模拟发送个异步HTTP请求
-    // setPromiseHttp: function () {
-    //   let url = 'http://localhost:8080/getFeatures'
-    //   let promise = new Promise(function (resolve, reject) {
-    //     setTimeout(setrequest, 2500, url)
-    //     function setrequest (url) {
-    //       resolve({
-    //         code: 200,
-    //         message: 'success',
-    //         data: [
-    //           { TMM: 'TMM', AGE: 27 }
-    //         ]
-    //       })
-    //     }
-    //   })
-    //   promise.then(function (callback) {
-    //     console.log('成功后回调返回信息:' + JSON.stringify(callback))
-    //   })
-    //   console.log('继续执行B操作!')
     // },
 
     /**
