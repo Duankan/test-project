@@ -9,17 +9,25 @@
         2.可以让错误正确传递并捕捉
         3.实现基于异步编程
  */
-import { sendHttpRequest } from '@/utils/helps';
+import { sendHttpRequest } from '@/utils/helps'
 export default {
   name: 'Promise',
-  data() {
+  data () {
     return {
       vuebind: {
         a: 1
       }
     }
   },
+<<<<<<< HEAD
   created() {
+=======
+  created () {
+    // console.log(this.vuebind);
+    // this.doPromise();
+    // this.setPromiseHttp();
+    // this.defineProperty();
+>>>>>>> 986d2dbdc6068c1a558a5c0cca8d70424ac69c69
     this.mvvm()
     // var proxy = new Proxy({}, {
     //   get: function (target, propKey) {
@@ -28,7 +36,12 @@ export default {
     // })
     // console.log(proxy.name)
     // console.log(proxy.title)
+<<<<<<< HEAD
     // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(
+=======
+    // console.log`"\u0061"`
+    // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/2.pdf').then(
+>>>>>>> 986d2dbdc6068c1a558a5c0cca8d70424ac69c69
     //   function (json) {
     //     console.log('Contents: ' + json)
     //   },
@@ -36,14 +49,22 @@ export default {
     //     console.error('出错了', error)
     //   }
     // );
+<<<<<<< HEAD
+=======
+    // this.setFetch('http://localhost:8089/service/pdf/getPdfTemplate/1.pdf').then(response => {
+    //   return response.json();
+    // }).then(profile => {
+    //   console.log(profile);
+    // })
+>>>>>>> 986d2dbdc6068c1a558a5c0cca8d70424ac69c69
 
-    //并行期约测试
+    // 并行期约测试
     let result = Promise.all([
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱后入大屁股', 'get'),
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏啪啪啪后入大屁股', 'get'),]
-    );
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA.pdf', 'get'),
+      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA2.pdf', 'get')]
+    )
     result.then((data) => {
-      console.log(data) //[ 1, 2 ]
+      console.log(data) // [ 1, 2 ]
     })
   },
   methods: {
@@ -76,20 +97,20 @@ export default {
      * 使用最新基于Promise的http请求函数fetch
     **/
     setFetch: function (url) {
-      return fetch(url);
+      return fetch(url)
     },
 
-    //基于axois的期约
+    // 基于axois的期约
     setAxois: function (url, type, headers, params, extend) {
       let promise = new Promise(function (resolve, reject) {
-        let axiosp = sendHttpRequest(url, type, headers, params, extend);
+        let axiosp = sendHttpRequest(url, type, headers, params, extend)
         if (axiosp) {
           resolve(axiosp.then(response => { return response }))
         } else {
-          reject('请求失败!')
+          // reject('请求失败!')
         }
-      });
-      return promise;
+      })
+      return promise
     },
 
     // doPromise: function () {
