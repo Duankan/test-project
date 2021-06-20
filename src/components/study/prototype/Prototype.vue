@@ -58,8 +58,8 @@ export default {
           vuethis.$Message.info(this.name + ' 正在刷抖音...');
         }
       }
-      //Parent.protype上扩展方法
-      Parent.protype.watch = function () {
+      //Parent.prototype上扩展方法
+      Parent.prototype.watch = function () {
         vuethis.$Message.info(this.name + ' 正在watch tv...');
       }
       function Child(name, phone) {

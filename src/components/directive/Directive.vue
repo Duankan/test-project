@@ -71,11 +71,7 @@ export default {
       paipaipai: '',
       color: 'white',
       show: true,
-<<<<<<< HEAD
       left: { module: 'Prototype', position: 'left', action: 'panel', panelId: null },
-=======
-      left: { module: 'Generator', position: 'left', action: 'panel', panelId: null },
->>>>>>> 986d2dbdc6068c1a558a5c0cca8d70424ac69c69
       right: { module: 'MixinA', position: 'right', action: 'panel', panelId: null },
       bottom1: { module: 'Itable', position: 'bottom-open', action: 'panel', panelId: null },
       bottom2: { module: 'Itable2', position: 'bottom-open', action: 'panel', panelId: null },
@@ -116,7 +112,7 @@ export default {
       }
     },
     // class语法糖
-    todoclass () {
+    todoclass() {
       let arr = ['a', 'b', 'c']
       let iter = arr[Symbol.iterator]()
       let next = iter.next()

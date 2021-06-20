@@ -12,22 +12,14 @@
 import { sendHttpRequest } from '@/utils/helps'
 export default {
   name: 'Promise',
-  data () {
+  data() {
     return {
       vuebind: {
         a: 1
       }
     }
   },
-<<<<<<< HEAD
   created() {
-=======
-  created () {
-    // console.log(this.vuebind);
-    // this.doPromise();
-    // this.setPromiseHttp();
-    // this.defineProperty();
->>>>>>> 986d2dbdc6068c1a558a5c0cca8d70424ac69c69
     this.mvvm()
     // var proxy = new Proxy({}, {
     //   get: function (target, propKey) {
@@ -36,12 +28,7 @@ export default {
     // })
     // console.log(proxy.name)
     // console.log(proxy.title)
-<<<<<<< HEAD
     // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(
-=======
-    // console.log`"\u0061"`
-    // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/2.pdf').then(
->>>>>>> 986d2dbdc6068c1a558a5c0cca8d70424ac69c69
     //   function (json) {
     //     console.log('Contents: ' + json)
     //   },
@@ -49,14 +36,6 @@ export default {
     //     console.error('出错了', error)
     //   }
     // );
-<<<<<<< HEAD
-=======
-    // this.setFetch('http://localhost:8089/service/pdf/getPdfTemplate/1.pdf').then(response => {
-    //   return response.json();
-    // }).then(profile => {
-    //   console.log(profile);
-    // })
->>>>>>> 986d2dbdc6068c1a558a5c0cca8d70424ac69c69
 
     // 并行期约测试
     let result = Promise.all([
