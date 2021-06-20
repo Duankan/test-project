@@ -131,7 +131,12 @@ export default {
           this.$Message.info('{name} 正在刷抖音...');
         }
       }
+      //Parent.prototype上扩展方法
+      Parent.prototype.watch = function () {
+        vuethis.$Message.info(this.name + ' 正在watch tv...');
+      }
       function Child(name,phone){
+        //原理就是call通过改变上下文注入了name、play属性和方法,但是无法继承Parent的原型对象上属性方法
         Parent.call(this,name);
         this.phone=phone;
       }

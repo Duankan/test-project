@@ -72,7 +72,7 @@ export default {
       color: 'white',
       show: true,
       left: { module: 'Prototype', position: 'left', action: 'panel', panelId: null },
-      right: { module: 'MixinA', position: 'right', action: 'panel', panelId: null },
+      right: { module: 'MicrAndMactask', position: 'right', action: 'panel', panelId: null },
       bottom1: { module: 'Itable', position: 'bottom-open', action: 'panel', panelId: null },
       bottom2: { module: 'Itable2', position: 'bottom-open', action: 'panel', panelId: null },
       link: { module: 'https://www.iviewui.com/components/tabs', position: '', action: 'link', openType: 'href', panelId: null }
