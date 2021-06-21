@@ -1,11 +1,12 @@
 <script>
-import DM from './Document.md'
+// import DM from './Document.md'
 // import marked from 'marked'
 export default {
   name: 'Document',
-  data () {
+  data() {
     return {
-      readme: this.md2html(DM)
+      // readme: this.md2html(DM),
+      split: 0.2
     }
   },
 
@@ -14,19 +15,33 @@ export default {
   //     return marked(DM)
   //   }
   // },
-  created () {
-  },
+  created() { },
   methods: {}
 }
 </script>
 <template>
   <div class="documnet">
-    <div v-html="readme"></div>
+    <Split v-model="split">
+      <div
+        slot="left"
+        class="catalogtreearea"
+      >
+        目录树区域
+      </div>
+      <div
+        slot="right"
+        class="codearea"
+      >
+        代码演示区域
+      </div>
+    </Split>
   </div>
 </template>
 <style lang="less" scoped>
 .documnet {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 99%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 8px #888888;
 }
 </style>

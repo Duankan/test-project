@@ -247,11 +247,17 @@ export default {
         />
       </Drawer>
     </div>
-    <div :class="centerCSS" class="center">
+    <div
+      :class="centerCSS"
+      class="center"
+    >
       <slot></slot>
     </div>
     <!-- <div class="right-panel"></div> -->
-    <div :class="bottomPanelClasses" class="bottom-panel">
+    <div
+      :class="bottomPanelClasses"
+      class="bottom-panel"
+    >
       <div class="bottom-panel-header">
         <div class="bottom-panel-header-title">{{ bottomTitle }}</div>
         <div class="bottom-panel-header-tool">
@@ -309,6 +315,9 @@ export default {
     width: 100%;
     height: 100%;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .center-to-left {
     width: calc(~"100% - 300px");
