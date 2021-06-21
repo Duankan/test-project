@@ -102,6 +102,14 @@ module.exports = {
             {
                 test: /\.yml$/,
                 loader: require.resolve('../src/utils/yaml-loader.js'),
+            },
+            //md文件加载器
+            {
+                test: /\.md$/,
+                use: [
+                    { loader: 'html-loader' },
+                    { loader: 'markdown-loader', }
+                ]
             }
         ]
     },

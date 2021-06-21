@@ -4,75 +4,75 @@
  */
 export default {
   name: 'Prototype',
-  data() {
+  data () {
     return {}
   },
-  created() { },
+  created () { },
   methods: {
-    createdperson(name, age) {
-      let vuethis = this;
-      //实例代码如下:
-      function Person(name, age) {
-        this.name = name;
-        this.age = age;
+    createdperson (name, age) {
+      let vuethis = this
+      // 实例代码如下:
+      function Person (name, age) {
+        this.name = name
+        this.age = age
       }
-      //在原型在扩展方法
+      // 在原型在扩展方法
       Person.prototype.printinfo = function () {
-        vuethis.$Message.info('hello,i am ' + this.name + ',' + this.age + ' years old');
+        vuethis.$Message.info('hello,i am ' + this.name + ',' + this.age + ' years old')
       }
-      let person = new Person(name, age);
-      person.printinfo();
+      let person = new Person(name, age)
+      person.printinfo()
     },
-    //js实现继承之一:原型继承
-    implextendsone(fnname) {
-      let vuethis = this;
-      //动物:方法在构造函数上
-      function Animal() {
+    // js实现继承之一:原型继承
+    implextendsone (fnname) {
+      let vuethis = this
+      // 动物:方法在构造函数上
+      function Animal () {
         this.eat = function () {
-          vuethis.$Message.info('animal eat');
+          vuethis.$Message.info('animal eat')
         }
       }
-      //在Animal.prototype上扩展方法
+      // 在Animal.prototype上扩展方法
       Animal.prototype.sleep = function () {
-        vuethis.$Message.info('animal 睡觉');
+        vuethis.$Message.info('animal 睡觉')
       }
-      //狗:方法在构造函数上
-      function Dog() {
+      // 狗:方法在构造函数上
+      function Dog () {
         this.call = function () {
-          vuethis.$Message.info('dog 汪汪汪~~~');
+          vuethis.$Message.info('dog 汪汪汪~~~')
         }
       }
-      //1.指向实例能继承实例和其实例原型的属性方法
-      Dog.prototype = new Animal();
-      //2.指向其原型只能继承其原型的属性方法
+      // 1.指向实例能继承实例和其实例原型的属性方法
+      Dog.prototype = new Animal()
+      // 2.指向其原型只能继承其原型的属性方法
       // Dog.prototype=Animal.prototype;
-      let tugou = new Dog();
-      tugou[fnname]();
+      let tugou = new Dog()
+      tugou[fnname]()
     },
-    //js实现继承之二:借用构造函数
-    implextendstwo(name, phone) {
-      let vuethis = this;
-      function Parent(name) {
-        this.name = name;
+    // js实现继承之二:借用构造函数
+    implextendstwo (name, phone) {
+      let vuethis = this
+      function Parent (name) {
+        this.name = name
         this.play = function () {
-          vuethis.$Message.info(this.name + ' 正在刷抖音...');
+          vuethis.$Message.info(this.name + ' 正在刷抖音...')
         }
       }
-      //Parent.prototype上扩展方法
+      // Parent.prototype上扩展方法
       Parent.prototype.watch = function () {
-        vuethis.$Message.info(this.name + ' 正在watch tv...');
+        vuethis.$Message.info(this.name + ' 正在watch tv...')
       }
-      function Child(name, phone) {
-        //原理就是call通过改变上下文注入了name、play属性和方法,但是无法继承Parent的原型对象上属性方法
-        Parent.call(this, name);
-        this.phone = phone;
+      function Child (name, phone) {
+        // 原理就是call通过改变上下文注入了name、play属性和方法,但是无法继承Parent的原型对象上属性方法
+        Parent.call(this, name)
+        this.phone = phone
       }
-      //新建child对象
-      let child = new Child(name, phone);
-      child.play();
+      // 新建child对象
+      let child = new Child(name, phone)
+      child.play()
       // child.watch();
     }
-  },
+  }
 }
 </script>
 <template>
