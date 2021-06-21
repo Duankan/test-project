@@ -12,14 +12,20 @@ export default {
     todoasync () {
       let that = this
       function* sethttp () {
-        let rs1 = yield that.getpdftemplate('http://localhost:7080/onemap//wfsToDataBase/list/420000_1', 'get')
-        if (rs1 != null) yield that.getpdftemplate('http://localhost:7080/onemap//wfsToDataBase/list/420100_2', 'get')
+        const rs1 = yield that.getpdftemplate('http://localhost:7080/onemap//wfsToDataBase/list/420000_1', 'get')
+        const rs2 = yield that.getpdftemplate('http://localhost:7080/onemap//wfsToDataBase/list/420100_2', 'get')
+        // console.log(rs1)
+        // console.log(rs2)
         return 'success'
       }
       let asyncs = sethttp()
+      // next的流程执行无法保证其函数中下个操作是在上个异步操作完成后进行的！
+      asyncs.next().value.then(response => {
+        console.log(response)
+      })
       asyncs.next()
-      asyncs.next(true)
-      console.log('--------')
+      asyncs.next()
+      // console.log('--------')
     },
 
     // 2.实现异步编程
@@ -36,7 +42,7 @@ export default {
       })
       masync.next()
       masync.next()
-      console.log('在异步之前输入？')
+      console.log('在异步之前输入')
     },
 
     // 3.传统的基于回调方法的异步编程
@@ -49,6 +55,19 @@ export default {
       getUserinfo('002', function (data) {
         console.log(data)
       })
+    },
+    // 4.for......of遍历返回的迭代器对象代替next
+    forofReplaceNext () {
+      let obj = { k1: 1, k2: 2, k3: 3 }
+      function* generators (obj) {
+        let propKeys = Reflect.ownKeys(obj)
+        for (let propKey of propKeys) {
+          yield [propKey, obj[propKey]]
+        }
+      }
+      for (let [key, value] of generators(obj)) {
+        console.log(`${key}: ${value}`)
+      }
     },
     // 登录
     login () {
@@ -67,11 +86,12 @@ export default {
       })
     },
     getpdftemplate (url, type, headers, params, extend) {
-      let axiosp = sendHttpRequest(url, type, headers, params, extend)
-      if (axiosp === null || axiosp === undefined) return null
-      axiosp.then(response => {
-        console.log(response)
-        return response
+      return new Promise(function (resolve, reject) {
+        let axiosp = sendHttpRequest(url, type, headers, params, extend)
+        if (axiosp === null || axiosp === undefined) { reject(false) }
+        axiosp.then(response => {
+          resolve(response)
+        })
       })
     }
   }
@@ -82,6 +102,7 @@ export default {
     <Button @click="todoasync">异步操作同步表达</Button>
     <Button @click="showtoasync">实现js异步编程</Button>
     <Button @click="asyncBaseonAsync">基于回调的异步编程</Button>
+    <Button @click="forofReplaceNext">替换next</Button>
     <!-- <span class="span">{{ text }}</span><br />
     <span style="font-size:10px">px的大小</span> -->
   </div>
