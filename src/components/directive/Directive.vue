@@ -66,13 +66,13 @@ export default {
   //     },
   //   },
   // },
-  data () {
+  data() {
     return {
       paipaipai: '',
       color: 'white',
       show: true,
-      left: { module: 'Generator', position: 'left', action: 'panel', panelId: null },
-      right: { module: 'MixinA', position: 'right', action: 'panel', panelId: null },
+      left: { module: 'Prototype', position: 'left', action: 'panel', panelId: null },
+      right: { module: 'MicrAndMactask', position: 'right', action: 'panel', panelId: null },
       bottom1: { module: 'Itable', position: 'bottom-open', action: 'panel', panelId: null },
       bottom2: { module: 'Itable2', position: 'bottom-open', action: 'panel', panelId: null },
       link: { module: 'https://www.iviewui.com/components/tabs', position: '', action: 'link', openType: 'href', panelId: null }
@@ -84,11 +84,11 @@ export default {
     }
   },
   methods: {
-    toIframe () {
+    toIframe() {
       this.$router.push({ name: 'Iframe', params: { url: 'basicplatform-highgis-portal/main.html#/content/myData' } })
     },
     // 打开面板
-    async openPanel (item) {
+    async openPanel(item) {
       let moduleInst = null
       if (item !== null) {
         moduleInst = ModuleLoader.getModule(item.panelId)
@@ -112,7 +112,7 @@ export default {
       }
     },
     // class语法糖
-    todoclass () {
+    todoclass() {
       let arr = ['a', 'b', 'c']
       let iter = arr[Symbol.iterator]()
       let next = iter.next()
