@@ -42,6 +42,18 @@ const routes = [{
                     path: '/document/BindCallApply',
                     component: () =>
                         import ('@/components/study/bindcallapply/BindCallApply')
+                },
+                {
+                    name: 'Promise',
+                    path: '/document/promise',
+                    component: () =>
+                        import ('@/components/study/promise/Promise')
+                },
+                {
+                    name: 'Closure',
+                    path: '/document/closure',
+                    component: () =>
+                        import ('@/components/study/closure/Closure')
                 }
             ]
         }

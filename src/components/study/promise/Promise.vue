@@ -20,35 +20,12 @@ export default {
     }
   },
   created () {
-    this.mvvm()
-    // var proxy = new Proxy({}, {
-    //   get: function (target, propKey) {
-    //     return 35
-    //   }
-    // })
-    // console.log(proxy.name)
-    // console.log(proxy.title)
-    // this.setAjax('http://localhost:8089/service/pdf/getPdfTemplate/和谭明敏做爱').then(
-    //   function (json) {
-    //     console.log('Contents: ' + json)
-    //   },
-    //   function (error) {
-    //     console.error('出错了', error)
-    //   }
-    // );
-
-    // 并行期约测试
-    let result = Promise.all([
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA.pdf', 'get'),
-      this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA2.pdf', 'get')]
-    )
-    result.then((data) => {
-      console.log(data) // [ 1, 2 ]
-    })
+    // // this.mvvm()
   },
   methods: {
     //  实现AJAX例子
     setAjax: function (url) {
+      let vuethis = this
       let promise = new Promise(function (resolve, reject) {
         // 发送后handler处理
         let handler = function () {
@@ -69,16 +46,44 @@ export default {
         client.setRequestHeader('Access-Control-Allow-Origin', '*')
         client.send()
       })
-      return promise
+      promise.then(
+        function (json) {
+          vuethis.$Message.info('Contents: ' + json)
+        },
+        function (error) {
+          vuethis.$Message.warning('请求发送失败:', error)
+        }
+      )
+      // return promise
     },
-
-    /**
-     * 使用最新基于Promise的http请求函数fetch
-    **/
-    setFetch: function (url) {
-      return fetch(url)
+    demo1 () {
+      let vuethis = this
+      let promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          resolve({ message: '承诺做到了A!', code: 200 })
+        }, 1000)
+      })
+      promise.then(function (response) {
+        vuethis.$Message.info('成功后回调返回信息:' + JSON.stringify(response))
+      })
+      promise.catch(function (response) {
+        vuethis.$Message.info('失败后回调返回信息:' + JSON.stringify(response))
+      })
     },
-
+    // 并行期约测试
+    promsieall () {
+      let vuethis = this
+      let result = Promise.all([
+        this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA.pdf', 'get'),
+        this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA2.pdf', 'get')]
+      )
+      result.then((data) => {
+        vuethis.$Message.info('promiseall成功:' + data)
+      },
+      (erro) => {
+        vuethis.$Message.warning('promiseall失败:' + erro)
+      })
+    },
     // 基于axois的期约
     setAxois: function (url, type, headers, params, extend) {
       let promise = new Promise(function (resolve, reject) {
@@ -90,81 +95,109 @@ export default {
         }
       })
       return promise
-    },
-
-    // doPromise: function () {
-    //   let promise = new Promise(function (resolve, reject) {
-    //     setTimeout(function () {
-    //       resolve({ message: '承诺做到了A!', code: 200 })
-    //     }, 1000)
-    //   })
-    //   promise.then(function (callback) {
-    //     console.log('成功后回调返回信息:' + JSON.stringify(callback))
-    //   })
-    //   promise.catch(function (callback) {
-    //     console.log('失败后回调返回信息:' + JSON.stringify(callback))
-    //   })
-    //   console.log('异步执行B!')
-    //   console.log(promise)
-    // },
-
-    /**
-     *  数据劫持  Object.defineProperty() 旧
-     *  新:proxy代理拦截
-     */
-    defineProperty: function () {
-      let Book = {}
-      var name = ''
-      Object.defineProperty(Book, 'Name', {
-        set: function (newValue) {
-          name = newValue
-          console.log('数据劫持,调用了set方法:' + newValue)
-        },
-        get: function () {
-          console.log('数据劫持,调用了get方法')
-          return '<<' + name + '>>'
-        }
-      })
-      Book.Name = '天龙八部'
-      console.log(Book.Name)
-    },
-    // 通过数据劫持实现简单版的双向绑定
-    mvvm: function () {
-      var obj = {}
-      var Name = ''
-      Object.defineProperty(obj, 'Name', {
-        set: function (newValue) {
-          Name = newValue
-          document.getElementById('define-input').value = newValue// 让文本框的内容等于val
-          document.getElementById('define-span').innerHTML = newValue// 让span的内容等于val
-        },
-        get: function () {
-          return Name
-        }
-      })
-      document.addEventListener('keyup', function (e) { // 当在文本框输入内容时让对象里你定义的val等于文本框的值
-        obj.Name = e.target.value
-      })
     }
   }
 }
 </script>
 <template>
-  <!--实现一个简单的双向绑定-->
-  <div class="vue-define-property">
-    简单双向绑定:<input
-      type="text"
-      id="define-input"
-    ><br />
-    <span
-      id="define-span"
-      style="color:red;"
-    ></span>
-    <UseInstall></UseInstall>
-    <test-toast></test-toast>
-    <test-panel></test-panel>
+  <div class="promise">
+    <textarea
+      class="example1"
+      disabled
+    >
+      //示例一:简单使用promise用法
+      function () {
+        let vuethis = this
+        let promise = new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            resolve({ message: '承诺做到了A!', code: 200 })
+          }, 1000)
+        })
+        promise.then(function (response) {
+          vuethis.$Message.info('成功后回调返回信息:' + JSON.stringify(response))
+        })
+        promise.catch(function (response) {
+          vuethis.$Message.info('失败后回调返回信息:' + JSON.stringify(response))
+        })
+      },
+    </textarea>
+    <Button @click="demo1">使用教程</Button>
+    <textarea
+      class="example2"
+      disabled
+    >
+      //示例二:发送ajax
+      setAjax: function (url) {
+      let promise = new Promise(function (resolve, reject) {
+        // 发送后handler处理
+        let handler = function () {
+          if (this.readyState !== 4) {
+            return
+          }
+          if (this.status === 200) {
+            resolve(this.response)
+          } else {
+            reject(new Error(this.statusText))
+          }
+        }
+        const client = new XMLHttpRequest()
+        client.open('GET', url)
+        client.onreadystatechange = handler
+        client.responseType = 'json'
+        client.setRequestHeader('Accept', 'application/json')
+        client.setRequestHeader('Access-Control-Allow-Origin', '*')
+        client.send()
+      })
+      promise.then(
+        function (json) {
+          vuethis.$Message.info('Contents: ' + json)
+        },
+        function (error) {
+          vuethis.$Message.warning('请求发送失败:', error)
+        }
+      )
+      },
+    </textarea>
+    <Button @click="setAjax('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA.pdf')">发送请求</Button>
+    <textarea
+      class="example1"
+      disabled
+    >
+    //示例三:同时使用多个promise并一同返回
+    function(){
+      let vuethis = this
+      let result = Promise.all([
+        this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA.pdf', 'get'),
+        this.setAxois('http://localhost:8089/service/pdf/getPdfTemplate/TMMPAPAPA2.pdf', 'get')]
+      )
+      result.then((data) => {
+        vuethis.$Message.info('promiseall成功:' + data)
+      },
+      (erro) => {
+        vuethis.$Message.warning('promiseall失败:' + erro)
+      })
+    }
+    </textarea>
+    <Button @click="promsieall">多promise</Button>
   </div>
 </template>
 
 <style lang="less" scoped>
+.promise {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  .example1 {
+    width: 98%;
+    height: 300px;
+    overflow: auto;
+    margin-top: 10px;
+  }
+  .example2 {
+    width: 98%;
+    height: 400px;
+    overflow: auto;
+    margin-top: 10px;
+  }
+}
 </style>

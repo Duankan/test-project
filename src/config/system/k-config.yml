@@ -77,8 +77,16 @@ catalogs:
                   expand: true,
                   children:
                     [
-                      { title: "1.2.1、promise" },
-                      { title: "1.2.2、闭包" },
+                      {
+                        title: "1.2.1、promise",
+                        opentype: "route",
+                        path: "/document/promise",
+                      },
+                      {
+                        title: "1.2.2、闭包",
+                        opentype: "route",
+                        path: "/document/closure",
+                      },
                       { title: "1.2.3、作用域与作用域链" },
                     ],
                 },
