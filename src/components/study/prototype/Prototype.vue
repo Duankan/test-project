@@ -77,7 +77,10 @@ export default {
 </script>
 <template>
   <div class="prototype">
-    <textarea class="example1">
+    <textarea
+      class="example1"
+      disabled
+    >
       //实例代码如下:
       function Person(name,age){
         this.name=name;
@@ -95,7 +98,10 @@ export default {
     </textarea>
     <Button @click="createdperson('谭明敏',27)">created O1</Button>
     <Button @click="createdperson('李青青',26)">created O2</Button>
-    <textarea class="example1">
+    <textarea
+      class="example1"
+      disabled
+    >
       //实现继承之一:原型继承
       //动物
       function Animal(){
@@ -123,7 +129,10 @@ export default {
     <Button @click="implextendsone('eat')">狗eat</Button>
     <Button @click="implextendsone('call')">狗call</Button>
     <Button @click="implextendsone('sleep')">狗sleep</Button>
-    <textarea class="example1">
+    <textarea
+      class="example1"
+      disabled
+    >
       //借用构造函数 call继承
       function Parent(name){
         this.name=name;

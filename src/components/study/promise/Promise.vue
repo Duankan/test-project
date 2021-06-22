@@ -12,14 +12,14 @@
 import { sendHttpRequest } from '@/utils/helps'
 export default {
   name: 'Promise',
-  data() {
+  data () {
     return {
       vuebind: {
         a: 1
       }
     }
   },
-  created() {
+  created () {
     this.mvvm()
     // var proxy = new Proxy({}, {
     //   get: function (target, propKey) {

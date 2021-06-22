@@ -9,7 +9,7 @@ initCfg:
 
 # 项目信息配置
 system:
-  title: 前端提升计划 # 应用程序标题
+  title: 前端 # 应用程序标题
   introduction: TopHighGIS高性能云GIS平台是湖北金拓维信息技术有限公司开发的，具有完全自主知识产权的GIS平台产品. # 应用程序描述信息
   copyright: Copyright &copy; 2019 湖北金拓维信息技术有限公司 # 版权信息
   logoUrl: static/images/brand.jpg # LOGO 图片
@@ -32,24 +32,88 @@ raven: https://${key}@${sentryUrl}/${project}
 whiteList:
   - "/login"
   - "/register"
-# 异步权限路由
-# 示例：
-# routes:
-#   RtBase:
-#     path: "/"
-#     component: "view/components/RtBase"
-#     redirect: "/pap"
-#     children:
-#       # HelloWorld:
-#       #   path: "/pap"
-#       #   component: "view/components/HelloWorld"
-#       Rtzty:
-#         path: "/rtzty"
-#         component: "view/components/Rtzty"
-#   RtMap:
-#     path: "/map"
-#     componet: "view/componets/RtMap"
-#     children:
-#       Vue-cli:
-#         path: "/vue-cli"
-#         componet: "view/componets/Vuecli"
+#目录树trees
+catalogs:
+  - {
+      title: "前端相关知识点文档",
+      expand: true,
+      children:
+        [
+          {
+            title: "1、JS",
+            expand: true,
+            children:
+              [
+                {
+                  title: "1.1、JS基础",
+                  expand: true,
+                  children:
+                    [
+                      {
+                        opentype: "iframe",
+                        title: "1.1.1、JS面向对象的理解",
+                        iframeurl: "https://map.baidu.com/search/%E9%87%91%E8%9E%8D%E8%A1%97%E9%87%91%E6%82%A6%E5%BA%9C%E6%AD%A6%E6%B1%89%E5%B8%82%E6%B1%9F%E5%A4%8F%E5%8C%BA/@12727419.31387883,3536009.250227214,16z?querytype=s&da_src=shareurl&wd=%E9%87%91%E8%9E%8D%E8%A1%97%C2%B7%E9%87%91%E6%82%A6%E5%BA%9C&c=218&src=0&wd2=%E6%AD%A6%E6%B1%89%E5%B8%82%E6%B1%9F%E5%A4%8F%E5%8C%BA&pn=0&sug=1&l=13&b=(12699170.888270041,3545530.11521097;12737113.652827004,3564046.97478903)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&sug_forward=97beade9a32f973fc9291549&seckey=516c8c7f2891364650aa42e424ca3fc518d25585ee40decb6057c96ceae39f560a47d3c6b255a835dd5867093abb9e39fbfd96d7f359530c3966fcb21b4d5e99dd591b259b139cc800bc0b04e44e0d583d5eb5a8b52de760f8306f382d9fa9c51ba4f2aecffe390539d342ff7fa46884fb2e269c5d1a753cfb8bb3017b62811b49967cfcab866d0d44b58f42235bfaabd092e68049e4b3fe467be9ba0e1890702f49631539514aad644f3e7c33666052028d4afb3268f1ff0362aba17c1661d80a949623249f1f1bcca0a2155342a0536ee93d54bdc6fe9cecc08beda40565880b3b70321151fb5f6230df3badbdddd5&device_ratio=1",
+                      },
+                      { title: "1.1.2、JS数据类型" },
+                      {
+                        opentype: "route",
+                        title: "1.1.3、PROTOTYPE原型及实现继承的几种方式",
+                        path: "/document/Prototype",
+                      },
+                      {
+                        opentype: "route",
+                        title: "1.1.4、宏任务与微任务",
+                        path: "/document/macmicr",
+                      },
+                      {
+                        opentype: "route",
+                        title: "1.1.5、bind call apply",
+                        path: "/document/BindCallApply",
+                      },
+                    ],
+                },
+                {
+                  title: "1.2、JS重点",
+                  expand: true,
+                  children:
+                    [
+                      { title: "1.2.1、promise" },
+                      { title: "1.2.2、闭包" },
+                      { title: "1.2.3、作用域与作用域链" },
+                    ],
+                },
+                {
+                  title: "1.3、ES6",
+                  expand: true,
+                  children:
+                    [
+                      { title: "1.3.1、proxy" },
+                      { title: "1.3.2、class" },
+                      { title: "1.3.3、async" },
+                      { title: "1.3.4、Generator 函数" },
+                      { title: "1.3.5、Iterator迭代器" },
+                      { title: "1.3.6、Symbol符号" },
+                      { title: "1.3.7、Set和Map" },
+                      { title: "1.3.8、变量的解构赋值" },
+                      { title: "1.3.9、对象与函数的扩展与新增方法" },
+                      { title: "1.3.10、var let const" },
+                      { title: "1.3.11、Module-模块" },
+                    ],
+                },
+              ],
+          },
+          {
+            title: "2、VUE",
+            expand: true,
+            children:
+              [
+                { title: "2.1、vue数据绑定原理？" },
+                { title: "2.2、vue生命周期？" },
+              ],
+          },
+          { title: "3、WEBPACK打包工具" },
+          { title: "4、HTML、CSS" },
+          { title: "5、GIS" },
+          { title: "6、自然资源业务" },
+        ],
+    }

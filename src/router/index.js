@@ -14,22 +14,36 @@ const routes = [{
             component: () =>
                 import ('@/components/directive/Directive')
         },
-        // {
-        //   name: 'HelloWorld',
-        //   path: '/pap',
-        //   component: () =>
-        //     import('@/components/HelloWorld')
-        // },
         {
             name: 'Rtzty',
             path: '/rtzty',
             component: () =>
                 import ('@/components/rtzty/Rtzty')
-        }, {
+        },
+        {
             name: 'Document',
             path: '/document',
             component: () =>
-                import ('@/components/document/Document')
+                import ('@/components/document/Document'),
+            children: [{
+                    name: 'Prototype',
+                    path: '/document/Prototype',
+                    component: () =>
+                        import ('@/components/study/prototype/Prototype')
+                },
+                {
+                    name: 'MicrAndMactask',
+                    path: '/document/macmicr',
+                    component: () =>
+                        import ('@/components/study/micrandmactask/MicrAndMactask')
+                },
+                {
+                    name: 'BindCallApply',
+                    path: '/document/BindCallApply',
+                    component: () =>
+                        import ('@/components/study/bindcallapply/BindCallApply')
+                }
+            ]
         }
     ]
 }]
