@@ -54,6 +54,12 @@ const routes = [{
                     path: '/document/closure',
                     component: () =>
                         import ('@/components/study/closure/Closure')
+                },
+                {
+                    name: 'Proxy',
+                    path: '/document/proxy',
+                    component: () =>
+                        import ('@/components/study/proxy/Proxy')
                 }
             ]
         }
