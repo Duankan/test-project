@@ -1,5 +1,10 @@
 <script>
 import cofgig from 'config'
+const OPENTYPE = {
+  ROUTE: 'route',
+  IFRAME: 'iframe',
+  BLANK: 'blank'
+}
 export default {
   name: 'Document',
   data () {
@@ -31,18 +36,18 @@ export default {
     nodeSelected: function (node) {
       if (node && node[0]) {
         switch (node[0].opentype) {
-          case 'route':
+          case OPENTYPE.ROUTE:
             this.opentype = node[0].opentype
             this.$router.push({
               path: node[0].path
             })
             break
-          case 'iframe':
+          case OPENTYPE.IFRAME:
             this.opentype = node[0].opentype
             this.iframeurl = node[0].iframeurl
             break
-          default:
-            // this.opentype = 'route'
+          case OPENTYPE.BLANK:
+            window.open(node[0].url)
             break
         }
       }

@@ -60,6 +60,18 @@ const routes = [{
                     path: '/document/proxy',
                     component: () =>
                         import ('@/components/study/proxy/Proxy')
+                },
+                {
+                    name: 'Iterator',
+                    path: '/document/iterator',
+                    component: () =>
+                        import ('@/components/study/iterator/Iterator')
+                },
+                {
+                    name: 'Generator',
+                    path: '/document/generator',
+                    component: () =>
+                        import ('@/components/study/generator/Generator')
                 }
             ]
         }
