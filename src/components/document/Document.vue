@@ -6,7 +6,9 @@ export default {
   data() {
     return {
       // readme: this.md2html(DM),
-      split: 0.2
+      split: 0.2,
+      //目录树
+      catalogs: [],
     }
   },
 
