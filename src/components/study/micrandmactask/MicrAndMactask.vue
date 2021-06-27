@@ -4,27 +4,27 @@
 */
 export default {
   name: 'MicrAndMactask',
-  data() {
+  data () {
     return {}
   },
-  created() { },
+  created () { },
   methods: {
-    //宏任务、微任务执行顺序1
-    macmicroreder1() {
-      let vuethis = this;
-      //宏任务
+    // 宏任务、微任务执行顺序1
+    macmicroreder1 () {
+      let vuethis = this
+      // 宏任务
       setTimeout(function () {
-        vuethis.$Message.info('这是宏任务setTimeout');
-      }, 0);
-      //微任务
+        vuethis.$Message.info('这是宏任务setTimeout')
+      }, 0)
+      // 微任务
       new Promise(function (resolve, reject) {
-        vuethis.$Message.info('这是微任务Promise的then之前');
-        resolve('承诺响应结果');
+        vuethis.$Message.info('这是微任务Promise的then之前')
+        resolve('承诺响应结果')
       }).then(function () {
-        vuethis.$Message.info('这是微任务Promise的then之后');
-      });
-      //同步代码
-      vuethis.$Message.info('这是同步的script');
+        vuethis.$Message.info('这是微任务Promise的then之后')
+      })
+      // 同步代码
+      vuethis.$Message.info('这是同步的script')
       /**
        总结:
         1.遇到setTimeout,异步宏任务,放入宏任务队列，执行顺序：4
@@ -32,13 +32,16 @@ export default {
         3.遇到then,异步微任务放入微任务队列，执行顺序：3
         4.遇到同步输出块,执行顺序：2
       **/
-    },
-  },
+    }
+  }
 }
 </script>
 <template>
   <div class="micr-mactask">
-    <textarea class="example">
+    <textarea
+      class="example"
+      disabled
+    >
       例子一
       //宏任务
       setTimeout(function(){
@@ -73,7 +76,7 @@ export default {
   margin: 0 auto;
   .example {
     width: 98%;
-    height: 300px;
+    height: 500px;
     overflow: auto;
     margin-top: 10px;
   }
