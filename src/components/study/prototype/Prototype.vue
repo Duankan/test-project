@@ -4,15 +4,15 @@
  */
 export default {
   name: 'Prototype',
-  data () {
+  data() {
     return {}
   },
-  created () { },
+  created() { },
   methods: {
-    createdperson (name, age) {
+    createdperson(name, age) {
       let vuethis = this
       // 实例代码如下:
-      function Person (name, age) {
+      function Person(name, age) {
         this.name = name
         this.age = age
       }
@@ -24,10 +24,10 @@ export default {
       person.printinfo()
     },
     // js实现继承之一:原型继承
-    implextendsone (fnname) {
+    implextendsone(fnname) {
       let vuethis = this
       // 动物:方法在构造函数上
-      function Animal () {
+      function Animal() {
         this.eat = function () {
           vuethis.$Message.info('animal eat')
         }
@@ -37,7 +37,7 @@ export default {
         vuethis.$Message.info('animal 睡觉')
       }
       // 狗:方法在构造函数上
-      function Dog () {
+      function Dog() {
         this.call = function () {
           vuethis.$Message.info('dog 汪汪汪~~~')
         }
@@ -50,9 +50,9 @@ export default {
       tugou[fnname]()
     },
     // js实现继承之二:借用构造函数
-    implextendstwo (name, phone) {
+    implextendstwo(name, phone) {
       let vuethis = this
-      function Parent (name) {
+      function Parent(name) {
         this.name = name
         this.play = function () {
           vuethis.$Message.info(this.name + ' 正在刷抖音...')
@@ -62,7 +62,7 @@ export default {
       Parent.prototype.watch = function () {
         vuethis.$Message.info(this.name + ' 正在watch tv...')
       }
-      function Child (name, phone) {
+      function Child(name, phone) {
         // 原理就是call通过改变上下文注入了name、play属性和方法,但是无法继承Parent的原型对象上属性方法
         Parent.call(this, name)
         this.phone = phone
@@ -96,7 +96,7 @@ export default {
         3.利用原型扩展方法，省去了每个创建对象结构上该方法的多余
        */
     </textarea>
-    <Button @click="createdperson('谭明敏',27)">created O1</Button>
+    <Button @click="createdperson('xxx',27)">created O1</Button>
     <Button @click="createdperson('李青青',26)">created O2</Button>
     <textarea
       class="example1"
@@ -167,6 +167,7 @@ export default {
     height: 300px;
     overflow: auto;
     margin-top: 10px;
+    font-size: 15px;
   }
 }
 </style>

@@ -4,13 +4,13 @@
 */
 export default {
   name: 'MicrAndMactask',
-  data () {
+  data() {
     return {}
   },
-  created () { },
+  created() { },
   methods: {
     // 宏任务、微任务执行顺序1
-    macmicroreder1 () {
+    macmicroreder1() {
       let vuethis = this
       // 宏任务
       setTimeout(function () {
@@ -42,6 +42,10 @@ export default {
       class="example"
       disabled
     >
+      js是单线程机制，有着自己的运行机制： js可分为同步任务和异步任务，对于同步的任务，我们当然知道按照顺序进行执行，但是对于异步的操作，会有一个优先级的执行顺序，分别为宏任务和微任务
+      宏任务: setTimeout, setInterval, setImmediate, I/O, UI rendering
+      微任务: process.nextTick, Promises, Object.observe(废弃), MutationObserver
+
       例子一
       //宏任务
       setTimeout(function(){
@@ -79,6 +83,9 @@ export default {
     height: 500px;
     overflow: auto;
     margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: cursive;
   }
 }
 </style>

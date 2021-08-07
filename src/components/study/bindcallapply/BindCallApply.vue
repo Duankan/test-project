@@ -9,13 +9,13 @@
  */
 export default {
   name: 'BindCallApply',
-  data () {
+  data() {
     return {}
   },
-  created () { },
+  created() { },
   methods: {
     // 使用call
-    call () {
+    call() {
       let vuethis = this
       var xw = {
         name: '小王',
@@ -33,7 +33,7 @@ export default {
       xw.say.call(xh, '武汉纺织大学', '湖北省武汉市江夏区')
     },
     // 使用bind
-    bind () {
+    bind() {
       let vuethis = this
       var xw = {
         name: '小王',
@@ -52,7 +52,7 @@ export default {
       xw.say.bind(xh, '武汉纺织大学', '湖北省武汉市江夏区')()
     },
     // 使用apply
-    apply () {
+    apply() {
       let vuethis = this
       var xw = {
         name: '小王',
@@ -114,6 +114,7 @@ export default {
     height: 500px;
     overflow: auto;
     margin-top: 10px;
+    font-size: 15px;
   }
 }
 </style>
