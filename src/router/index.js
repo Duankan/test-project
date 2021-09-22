@@ -72,6 +72,12 @@ const routes = [{
                     path: '/document/generator',
                     component: () =>
                         import ('@/components/study/generator/Generator')
+                },
+                {
+                    name: 'A',
+                    path: '/document/communication',
+                    component: () =>
+                        import ('@/components/study/communication/A')
                 }
             ]
         }

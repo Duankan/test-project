@@ -16,15 +16,15 @@
  */
 export default {
   name: 'Closure',
-  data () {
+  data() {
     return {}
   },
-  created () {
-    function f1 () {
+  created() {
+    function f1() {
       // f1函数的局部变量
       let f1_variable = 100
       // 内部函数f2
-      function f2 () {
+      function f2() {
         console.log(f1_variable)
       }
       return f2
@@ -47,9 +47,9 @@ export default {
   },
   methods: {
     // 匿名函数function还在使用外部函数的变量i,i就没有被销毁,所以延迟时间到i值还是延迟前的值
-    demo1 () {
+    demo1() {
       let vuethis = this
-      function T (i) {
+      function T(i) {
         setTimeout(function () {
           vuethis.$Message.info('值:' + i)
         }, 100)
@@ -59,7 +59,7 @@ export default {
       }
     },
     // 不用闭包循环输出setTimeout的值
-    demo2 () {
+    demo2() {
       let vuethis = this
       for (var i = 0; i < 5; i++) {
         setTimeout(function () {

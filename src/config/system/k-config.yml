@@ -133,6 +133,7 @@ catalogs:
               [
                 { title: "2.1、vue数据绑定原理？" },
                 { title: "2.2、vue生命周期？" },
+                { title: "2.3、组件通信",opentype: "route",path: "/document/communication", },
               ],
           },
           { title: "3、WEBPACK打包工具" },

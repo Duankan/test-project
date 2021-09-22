@@ -110,7 +110,14 @@ module.exports = {
                     { loader: 'html-loader' },
                     { loader: 'markdown-loader', }
                 ]
-            }
+            },
+            {
+                test: /\.less$/,
+                loader: 'less-loader',
+                options: {
+                    javascriptEnabled: true
+                }
+            },
         ]
     },
     node: {

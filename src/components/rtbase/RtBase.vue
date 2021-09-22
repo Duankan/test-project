@@ -1,6 +1,7 @@
 <script>
 import config from 'config'
 import PanelWrapper from '../../moduleloader/panelWrapper/PanelWrapper'
+import less from 'less'
 const USER_LOGOUT = 'USER_LOGOUT'
 export default {
   name: 'RtBase',
@@ -10,10 +11,34 @@ export default {
       // LOGO地址
       logoUrl: config.system.logoUrl,
       // 系统标题
-      title: config.system.title
+      title: config.system.title,
+      cityList: [
+        {
+          value: '#515a6e',
+          label: '红色'
+        },
+        {
+          value: '#459aee',
+          label: '黑色'
+        }
+      ],
+      model1: '#459aee'
     }
   },
   created() {
+  },
+  watch: {
+    model1: {
+      handler(nvalue, ovalue) {
+        less.modifyVars({ // 调用 `less.modifyVars` 方法来改变变量值'
+          '@primaryColor': nvalue
+        })
+          .then(() => {
+            console.log('修改成功')
+          })
+      },
+      immediate: true
+    }
   },
   methods: {
     // 退出登录
@@ -35,12 +60,31 @@ export default {
   <div class="RtBase">
     <header>
       <div class="left">
-        <img :src="logoUrl" alt="logo" />
+        <img
+          :src="logoUrl"
+          alt="logo"
+        />
         <span>{{ title }}</span>
       </div>
       <div class="right">
-        <!-- <UserInfo/> -->
-        <Icon type="md-log-out" size="24" title="退出" @click.native="click"></Icon>
+        <!--网页切换主题-->
+        <Select
+          v-model="model1"
+          style="width:100px;margin-right:20px;"
+        >
+          <Option
+            v-for="item in cityList"
+            :value="item.value"
+            :key="item.value"
+          >{{ item.label }}</Option>
+        </Select>
+        <!-- <UserInfo />
+        <Icon
+          type="md-log-out"
+          size="24"
+          title="退出"
+          @click.native="click"
+        ></Icon> -->
       </div>
     </header>
     <main>

@@ -20,6 +20,7 @@
     "iview": "^3.5.4",
     "js-yaml": "^3.13.1",
     "kplugins": "^1.0.2",
+    "kplugins_2": "^1.0.3",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "markdown-loader": "^6.0.0",
