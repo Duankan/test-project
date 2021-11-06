@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  filters: {
+    filter_fixbugs(val) {
+      return '定位Tag检出的分支,用于修复指定的bug';
+    }
+  }
 }
 </script>
 
