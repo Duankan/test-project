@@ -72,7 +72,17 @@ export default {
 </script>
 <template>
   <div class="closure">
-    <textarea
+    <van-cell-group>
+      <van-cell
+        title="单元格"
+        value="内容"
+      />
+      <van-cell
+        title="单元格"
+        value="内容"
+      />
+    </van-cell-group>
+    <!-- <textarea
       class="example1"
       disabled
     >
@@ -120,7 +130,7 @@ export default {
     }
     </textarea>
     <Button @click="demo1">使用闭包</Button>
-    <Button @click="demo2">不使用闭包</Button>
+    <Button @click="demo2">不使用闭包</Button> -->
   </div>
 </template>
 <style lang="less" scoped>

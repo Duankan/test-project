@@ -4,12 +4,20 @@ import router from './router'
 // import x2js from 'x2js'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 import UseInstall from '../src/components/useinstall/index'
 import kplugins from 'kplugins'
 import showdown from 'showdown'
+import '../src/assets/icons/index'
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
 Vue.use(iView)
-    // 使用自定义插件
+Vue.use(ElementUI)
+Vue.use(Vant);
+// 使用自定义插件
 Vue.use(UseInstall)
 Vue.use(kplugins)
 
