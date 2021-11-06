@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  filters: {
+    fliter_tag(val) {
+      return '20211106_v1.0'
+    }
+  }
 }
 </script>
 
