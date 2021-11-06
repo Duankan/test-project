@@ -4,85 +4,99 @@ import RtBase from '@/components/rtbase/RtBase'
 
 Vue.use(Router)
 const routes = [{
-    name: 'RtBase',
-    path: '/',
-    redirect: '/direct',
-    component: RtBase,
-    children: [{
-            name: 'Directive',
-            path: '/direct',
-            component: () =>
-                import ('@/components/directive/Directive')
-        },
-        {
-            name: 'Rtzty',
-            path: '/rtzty',
-            component: () =>
-                import ('@/components/rtzty/Rtzty')
-        },
-        {
-            name: 'Document',
-            path: '/document',
-            component: () =>
-                import ('@/components/document/Document'),
-            children: [{
-                    name: 'Prototype',
-                    path: '/document/Prototype',
-                    component: () =>
-                        import ('@/components/study/prototype/Prototype')
-                },
-                {
-                    name: 'MicrAndMactask',
-                    path: '/document/macmicr',
-                    component: () =>
-                        import ('@/components/study/micrandmactask/MicrAndMactask')
-                },
-                {
-                    name: 'BindCallApply',
-                    path: '/document/BindCallApply',
-                    component: () =>
-                        import ('@/components/study/bindcallapply/BindCallApply')
-                },
-                {
-                    name: 'Promise',
-                    path: '/document/promise',
-                    component: () =>
-                        import ('@/components/study/promise/Promise')
-                },
-                {
-                    name: 'Closure',
-                    path: '/document/closure',
-                    component: () =>
-                        import ('@/components/study/closure/Closure')
-                },
-                {
-                    name: 'Proxy',
-                    path: '/document/proxy',
-                    component: () =>
-                        import ('@/components/study/proxy/Proxy')
-                },
-                {
-                    name: 'Iterator',
-                    path: '/document/iterator',
-                    component: () =>
-                        import ('@/components/study/iterator/Iterator')
-                },
-                {
-                    name: 'Generator',
-                    path: '/document/generator',
-                    component: () =>
-                        import ('@/components/study/generator/Generator')
-                },
-                {
-                    name: 'A',
-                    path: '/document/communication',
-                    component: () =>
-                        import ('@/components/study/communication/A')
-                }
-            ]
-        }
-    ]
-}]
+        name: 'RtBase',
+        path: '/',
+        redirect: '/direct',
+        component: RtBase,
+        children: [{
+                name: 'Directive',
+                path: '/direct',
+                component: () =>
+                    import ('@/components/directive/Directive')
+            },
+            {
+                name: 'Rtzty',
+                path: '/rtzty',
+                component: () =>
+                    import ('@/components/rtzty/Rtzty')
+            },
+            {
+                name: 'Document',
+                path: '/document',
+                component: () =>
+                    import ('@/components/document/Document'),
+                children: [{
+                        name: 'Prototype',
+                        path: '/document/Prototype',
+                        component: () =>
+                            import ('@/components/study/prototype/Prototype')
+                    },
+                    {
+                        name: 'MicrAndMactask',
+                        path: '/document/macmicr',
+                        component: () =>
+                            import ('@/components/study/micrandmactask/MicrAndMactask')
+                    },
+                    {
+                        name: 'BindCallApply',
+                        path: '/document/BindCallApply',
+                        component: () =>
+                            import ('@/components/study/bindcallapply/BindCallApply')
+                    },
+                    {
+                        name: 'Promise',
+                        path: '/document/promise',
+                        component: () =>
+                            import ('@/components/study/promise/Promise')
+                    },
+                    {
+                        name: 'Closure',
+                        path: '/document/closure',
+                        component: () =>
+                            import ('@/components/study/closure/Closure')
+                    },
+                    {
+                        name: 'Proxy',
+                        path: '/document/proxy',
+                        component: () =>
+                            import ('@/components/study/proxy/Proxy')
+                    },
+                    {
+                        name: 'Iterator',
+                        path: '/document/iterator',
+                        component: () =>
+                            import ('@/components/study/iterator/Iterator')
+                    },
+                    {
+                        name: 'Generator',
+                        path: '/document/generator',
+                        component: () =>
+                            import ('@/components/study/generator/Generator')
+                    },
+                    {
+                        name: 'A',
+                        path: '/document/communication',
+                        component: () =>
+                            import ('@/components/study/communication/A')
+                    }
+                ]
+            }
+
+        ]
+    },
+    {
+        name: 'BaiduMap',
+        path: '/baidumap',
+        component: () =>
+            import ('@/components/baidumap/BaiduMap')
+    },
+    {
+        name: 'MapApi',
+        path: '/map',
+        component: () =>
+            import ('@/components/baidumap/MapApi')
+    },
+]
 const router = new Router({
         mode: 'hash',
         base: '/',

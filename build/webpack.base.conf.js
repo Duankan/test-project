@@ -60,13 +60,31 @@ module.exports = {
                 loader: 'babel-loader',
                 include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
             },
+            // //typescript加载器
+            // {
+            //     test: /\.ts?$/,
+            //     loader: 'ts-loader',
+            //     exclude: /node_modules/,
+            //     options: {
+            //         appendTsSuffixTo: [/\.vue$/],
+            //     }
+            // },
             // 图形文件使用url-loader解析
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
+                exclude: [resolve('src/assets/icons')],
                 options: {
                     limit: 10000,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
+                include: [resolve('src/assets/icons')],
+                options: {
+                    symbolId: 'icon-[name]',
                 }
             },
             // 音频文件使用url-loader解析
