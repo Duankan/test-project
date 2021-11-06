@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png" /> -->
+    <!--master分支作出的改变-->
     <router-view />
   </div>
 </template>
